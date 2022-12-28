@@ -1,0 +1,49 @@
+---
+- hosts: kubernetes
+  tasks:
+  - name: Update package manager cache
+    apt: update_cache=yes
+  - name: Install Docker
+    apt: name=docker-ce,docker-ce-cli,containerd.io,docker-compose-plugin state=present
+  - name: Add current user to Docker group
+    become: yes
+    command: usermod -aG docker $USER
+  - name: Update current user's group membership
+    become: yes
+    command: newgrp docker
+  - name: Install Git
+    apt: name=git-all state=present
+  - name: Clone cri-dockerd repository
+    git: repo=https://github.com/Mirantis/cri-dockerd.git dest=cri-dockerd
+  - name: Install wget
+    apt: name=wget state=present
+  - name: Download Go
+    get_url: url=https://go.dev/dl/go1.19.4.linux-amd64.tar.gz dest=/tmp/go1.19.4.linux-amd64.tar.gz
+  - name: Extract Go
+    unarchive: src=/tmp/go1.19.4.linux-amd64.tar.gz dest=/usr/local copy=no
+  - name: Add Go to PATH
+    lineinfile: path=~/.profile line='export PATH=$PATH:/usr/local/go/bin'
+  - name: Source profile
+    command: source ~/.profile
+  - name: Build cri-dockerd
+    command: go build -o cri-dockerd/bin/cri-dockerd cri-dockerd
+  - name: Install cri-dockerd
+    copy: src=cri-dockerd/bin/cri-dockerd dest=/usr/local/bin/cri-dockerd mode=0755
+  - name: Install cri-docker system units
+    copy: src=cri-dockerd/packaging/systemd/* dest=/etc/systemd/system mode=0644
+  - name: Set cri-dockerd path in system unit
+    lineinfile: path=/etc/systemd/system/cri-docker.service regexp='/usr/bin/cri-dockerd' line='/usr/local/bin/cri-dockerd'
+  - name: Reload system units
+    command: systemctl daemon-reload
+  - name: Enable cri-docker service
+    systemd: name=cri-docker.service enabled=yes
+  - name: Enable cri-docker socket
+    systemd: name=cri-docker.socket enabled=yes
+  - name: Add Kubernetes package signing key
+    command: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+  - name: Add Kubernetes package repository
+    command: apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+  - name: Update package manager cache
+    apt: update_cache=yes
+  - name: Install kubeadm, kubelet, and kubectl
+    apt: name=kubeadm=1.26.0-00,kubelet=1.26.0-00,kubectl=1.26.0-00 state=present

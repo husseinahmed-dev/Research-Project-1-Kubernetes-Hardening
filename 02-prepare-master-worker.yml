@@ -1,0 +1,55 @@
+---
+- hosts: kubernetes
+  tasks:
+  - name: Disable swap
+    command: swapoff -a
+  - name: Remove swap from fstab
+    lineinfile:
+      path: /etc/fstab
+      regexp: '^\s*/swap'
+      state: absent
+  - name: Disable and stop ufw service
+    systemd: name=ufw enabled=no state=stopped
+  - name: Add containerd modules to modules-load.d
+    blockinfile:
+      path: /etc/modules-load.d/containerd.conf
+      insertafter: EOF
+      block: |
+        overlay
+        br_netfilter
+  - name: Load containerd modules
+    command: modprobe {{ item }}
+    with_items:
+      - overlay
+      - br_netfilter
+  - name: Add Kubernetes sysctl settings
+    blockinfile:
+      path: /etc/sysctl.d/kubernetes.conf
+      insertafter: EOF
+      block: |
+        net.bridge.bridge-nf-call-ip6tables = 1
+        net.bridge.bridge-nf-call-iptables  = 1
+        net.ipv4.ip_forward                 = 1
+  - name: Apply sysctl settings
+    command: sysctl --system
+  - name: Update package manager
+    apt: update_cache=yes
+  - name: Install required packages
+    apt:
+      name:
+        - ca-certificates
+        - curl
+        - gnupg
+        - lsb-release
+      state: present
+  - name: Create keyring directory
+    file:
+      path: /etc/apt/keyrings
+      state: directory
+  - name: Import Docker GPG key
+    command: gpg --dearmor -o /etc/apt/keyrings/docker.gpg <(curl -fsSL https://download.docker.com/linux/ubuntu/gpg)
+  - name: Add Docker repository
+    blockinfile:
+      path: /etc/apt/sources.list.d/docker.list
+      block: |
+        deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable
