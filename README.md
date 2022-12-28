@@ -1,1 +1,1 @@
-# Research-Project-1---Kubernetes-Hardening
+# Research Project 1 - Kubernetes Hardening
