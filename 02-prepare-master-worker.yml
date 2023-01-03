@@ -48,6 +48,7 @@
       state: directory
   - name: Import Docker GPG key
     command: gpg --dearmor -o /etc/apt/keyrings/docker.gpg <(curl -fsSL https://download.docker.com/linux/ubuntu/gpg)
+    ignore_errors: True
   - name: Add Docker repository
     blockinfile:
       path: /etc/apt/sources.list.d/docker.list
