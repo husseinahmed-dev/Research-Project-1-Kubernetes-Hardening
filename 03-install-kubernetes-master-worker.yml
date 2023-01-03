@@ -1,5 +1,5 @@
 ---
-- hosts: kubernetes
+- hosts: localhost
   tasks:
   - name: Update package manager cache
     apt: update_cache=yes
