@@ -8,7 +8,7 @@
       path: /etc/fstab
       regexp: '^\s*/swap'
       state: absent
-  - name: Disable and stop ufw service
+  - name: Adjust UFW Rules
     systemd: name=ufw enabled=no state=stopped
   - name: Add containerd modules to modules-load.d
     blockinfile:
