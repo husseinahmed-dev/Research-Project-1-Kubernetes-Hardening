@@ -1,5 +1,5 @@
 ---
-- hosts: kubernetes
+- hosts: localhost
   tasks:
   - name: Disable swap
     command: swapoff -a
