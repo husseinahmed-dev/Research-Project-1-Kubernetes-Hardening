@@ -1,5 +1,5 @@
 ---
-- hosts: loadbalancers
+- hosts: localhost
   tasks:
   - name: Set the default runlevel to multi-user
     command: sudo systemctl set-default multi-user
