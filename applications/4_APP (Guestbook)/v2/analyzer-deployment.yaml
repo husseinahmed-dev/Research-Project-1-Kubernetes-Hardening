@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: analyzer
-        image: us.icr.io/<my_namespace>/analyzer:v1
+        image: us.icr.io/sn-labs-husseinashah/analyzer:v1
         imagePullPolicy: Always
         resources:
           requests:
