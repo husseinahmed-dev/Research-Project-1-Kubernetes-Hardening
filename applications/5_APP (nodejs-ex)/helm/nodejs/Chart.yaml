@@ -1,9 +1,9 @@
 name: nodejs
 version: 0.1
-description: An example Node.js application with no database. For more information about using this template, including OpenShift considerations, see https://github.com/sclorg/nodejs-ex/blob/master/README.md.
+description: An example Node.js application for RP1 - Kubernetes Hardening
 keywords:
 - quickstart
 - nodejs
 home: https://access.redhat.com
 sources:
-- https://github.com/sclorg/nodejs-ex
+- https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening/tree/main/applications/5_APP%20(nodejs-ex)
