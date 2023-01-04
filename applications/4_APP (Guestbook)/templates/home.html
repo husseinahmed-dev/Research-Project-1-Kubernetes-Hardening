@@ -1,0 +1,58 @@
+{{define "home"}}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <title>Guestbook!</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <style type="text/css">
+        .container {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="span6 offset3">
+        <div class="row">
+            <div class="pull-right">
+                {{if .logged_in}}
+                <a href="/logout">logout</a>
+                {{else}}
+                <a href="/login">login</a>
+                {{end}}
+            </div>
+            <h1>Guestbook</h1>
+        </div>
+        <br/><br/>
+
+        <ul>
+        {{with .rows}}
+            {{range .Rows}}
+            <li>
+                {{.Comment}}<br/>
+                <em>Escrito por {{.User}} em {{.Written_at}}.</em>
+            </li>
+            {{end}}
+        {{end}}
+        </ul>
+
+        {{if .logged_in}}
+        <div class="row">
+            <div class="well">
+                <legend>Grave seu recado</legend>
+                <p>Escreva seu comentário, <strong>{{.username}}</strong>:</p>
+                <div class="container-fluid"><div class="row-fluid">
+                <form method="post" action="/guestbook" accept-charset="UTF-8">
+                    <textarea name="comment" class="span12"></textarea>
+                    <button type="submit" name="submit" class="btn btn-info pull-right">Enviar</button>
+                </form>
+                </div></div>
+            </div>
+        </div>
+        {{end}}
+    </div>
+</div>
+</body>
+</html>
+{{end}}

@@ -1,0 +1,33 @@
+{{define "login"}}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Efetue login para postar!</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <style type="text/css">
+        .container {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="span4 offset4 well">
+            <legend>Efetue login</legend>
+            {{if .wrong_password}}
+            <div class="alert alert-error">
+                Usuário ou senha inválidos!
+            </div>
+            {{end}}
+            <form method="post" action="/do_login" accept-charset="UTF-8">
+                <input type="text" id="username" class="span4" name="Username" placeholder="Usuário">
+                <input type="password" id="password" class="span4" name="Password" placeholder="Senha">
+                <button type="submit" name="submit" class="btn btn-info btn-block">Entrar</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{{end}}
