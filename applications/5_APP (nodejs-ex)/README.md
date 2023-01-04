@@ -1,6 +1,6 @@
 
 
-<!-- toc -->
+<!-- toc updated -->
 
 - [Node.js sample app on OpenShift!](#nodejs-sample-app-on-openshift)
   * [OpenShift Origin v3 setup](#openshift-origin-v3-setup)
