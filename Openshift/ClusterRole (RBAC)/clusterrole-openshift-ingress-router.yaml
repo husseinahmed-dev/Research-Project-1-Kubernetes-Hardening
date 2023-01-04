@@ -1,0 +1,65 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: openshift-ingress-router
+  uid: f6bc016b-a384-4398-8556-67082b338039
+  resourceVersion: '12567'
+  creationTimestamp: '2021-05-26T19:43:48Z'
+  managedFields:
+    - manager: ingress-operator
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2021-05-26T19:43:48Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:rules': {}
+rules:
+  - verbs:
+      - list
+      - watch
+    apiGroups:
+      - ''
+    resources:
+      - endpoints
+      - namespaces
+      - services
+  - verbs:
+      - create
+    apiGroups:
+      - authentication.k8s.io
+    resources:
+      - tokenreviews
+  - verbs:
+      - create
+    apiGroups:
+      - authorization.k8s.io
+    resources:
+      - subjectaccessreviews
+  - verbs:
+      - list
+      - watch
+    apiGroups:
+      - route.openshift.io
+    resources:
+      - routes
+  - verbs:
+      - update
+    apiGroups:
+      - route.openshift.io
+    resources:
+      - routes/status
+  - verbs:
+      - use
+    apiGroups:
+      - security.openshift.io
+    resources:
+      - securitycontextconstraints
+    resourceNames:
+      - hostnetwork
+  - verbs:
+      - list
+      - watch
+    apiGroups:
+      - discovery.k8s.io
+    resources:
+      - endpointslices

@@ -1,0 +1,47 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tektonaddons.operator.tekton.dev-v1alpha1-admin
+  uid: 27a25ae0-e5cb-465f-a9a8-5dcf39ccdd38
+  resourceVersion: '151617827'
+  creationTimestamp: '2021-12-09T14:12:08Z'
+  labels:
+    olm.opgroup.permissions/aggregate-to-b4594dbd037eba2a-admin: 'true'
+    rbac.authorization.k8s.io/aggregate-to-admin: 'true'
+  ownerReferences:
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: tektonaddons.operator.tekton.dev
+      uid: c9beb848-9b03-4e40-ae20-17b2c7abf300
+      controller: false
+      blockOwnerDeletion: false
+  managedFields:
+    - manager: olm
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2021-12-09T14:12:08Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:olm.opgroup.permissions/aggregate-to-b4594dbd037eba2a-admin': {}
+            'f:rbac.authorization.k8s.io/aggregate-to-admin': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"c9beb848-9b03-4e40-ae20-17b2c7abf300"}':
+              .: {}
+              'f:apiVersion': {}
+              'f:blockOwnerDeletion': {}
+              'f:controller': {}
+              'f:kind': {}
+              'f:name': {}
+              'f:uid': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - '*'
+    apiGroups:
+      - operator.tekton.dev
+    resources:
+      - tektonaddons

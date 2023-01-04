@@ -1,0 +1,208 @@
+﻿kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/build-config.name: rp1-5app-nodejs
+    openshift.io/build.number: '1'
+    openshift.io/build.pod-name: rp1-5app-nodejs-1-build
+  resourceVersion: '810068997'
+  name: rp1-5app-nodejs-1
+  uid: 079347b0-287c-49f9-bf7b-86f8937d4f58
+  creationTimestamp: '2023-01-04T13:19:54Z'
+  generation: 2
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-01-04T13:19:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/build-config.name': {}
+            'f:openshift.io/build.number': {}
+          'f:labels':
+            'f:app.openshift.io/runtime': {}
+            'f:app': {}
+            'f:app.kubernetes.io/name': {}
+            .: {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime-version': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:openshift.io/build-config.name': {}
+            'f:app.kubernetes.io/component': {}
+            'f:buildconfig': {}
+            'f:openshift.io/build.start-policy': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"3e748b85-534b-45dc-a7f3-04e0a0aa15f7"}': {}
+        'f:spec':
+          'f:output':
+            'f:to': {}
+          'f:serviceAccount': {}
+          'f:source':
+            'f:contextDir': {}
+            'f:git':
+              .: {}
+              'f:uri': {}
+            'f:type': {}
+          'f:strategy':
+            'f:sourceStrategy':
+              .: {}
+              'f:from': {}
+              'f:pullSecret': {}
+            'f:type': {}
+          'f:triggeredBy': {}
+        'f:status':
+          'f:conditions':
+            .: {}
+            'k:{"type":"New"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:config': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-01-04T13:22:18Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:openshift.io/build.pod-name': {}
+        'f:spec':
+          'f:output':
+            'f:pushSecret': {}
+        'f:status':
+          'f:completionTimestamp': {}
+          'f:duration': {}
+          'f:outputDockerImageReference': {}
+          'f:phase': {}
+          'f:startTimestamp': {}
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: BuildConfig
+      name: rp1-5app-nodejs
+      uid: 3e748b85-534b-45dc-a7f3-04e0a0aa15f7
+      controller: true
+  labels:
+    app: rp1-5app-nodejs
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+    app.kubernetes.io/instance: rp1-5app-nodejs
+    openshift.io/build-config.name: rp1-5app-nodejs
+    app.kubernetes.io/component: rp1-5app-nodejs
+    openshift.io/build.start-policy: Serial
+    buildconfig: rp1-5app-nodejs
+    app.openshift.io/runtime: nodejs
+    app.kubernetes.io/name: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'rp1-5app-nodejs:latest'
+    pushSecret:
+      name: builder-dockercfg-j6znr
+  resources: {}
+  triggeredBy:
+    - message: Image change
+      imageChangeBuild:
+        imageID: >-
+          image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6
+        fromRef:
+          kind: ImageStreamTag
+          namespace: openshift
+          name: 'nodejs:16-ubi8'
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: >-
+          image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6
+      pullSecret:
+        name: builder-dockercfg-j6znr
+  postCommit: {}
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: >-
+        https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+    contextDir: /applications/5_APP (nodejs-ex)
+  revision:
+    type: Git
+    git:
+      commit: d44bd7bf6f0665ed053aa2026033dc02396dd110
+      author:
+        name: Hussein Ahmed Shahab
+        email: hussein.a.shahab@gmail.com
+      committer:
+        name: Hussein Ahmed Shahab
+        email: hussein.a.shahab@gmail.com
+      message: Merge remote-tracking branch 'origin/main' into main
+status:
+  output:
+    to:
+      imageDigest: 'sha256:400d37f5d6a01f7476aaaca3c40b4a0491e9723c721cbceb85a0850b7d56d507'
+  config:
+    kind: BuildConfig
+    namespace: sn-labs-husseinashah
+    name: rp1-5app-nodejs
+  outputDockerImageReference: >-
+    image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs:latest
+  duration: 144000000000
+  startTimestamp: '2023-01-04T13:19:54Z'
+  stages:
+    - name: FetchInputs
+      startTime: '2023-01-04T13:19:57Z'
+      durationMilliseconds: 737
+      steps:
+        - name: FetchGitSource
+          startTime: '2023-01-04T13:19:57Z'
+          durationMilliseconds: 737
+    - name: PullImages
+      startTime: '2023-01-04T13:19:59Z'
+      durationMilliseconds: 69490
+      steps:
+        - name: PullBaseImage
+          startTime: '2023-01-04T13:19:59Z'
+          durationMilliseconds: 69490
+    - name: Build
+      startTime: '2023-01-04T13:21:09Z'
+      durationMilliseconds: 52805
+      steps:
+        - name: DockerBuild
+          startTime: '2023-01-04T13:21:09Z'
+          durationMilliseconds: 52805
+    - name: PushImage
+      startTime: '2023-01-04T13:22:02Z'
+      durationMilliseconds: 12810
+      steps:
+        - name: PushImage
+          startTime: '2023-01-04T13:22:02Z'
+          durationMilliseconds: 12810
+  conditions:
+    - type: New
+      status: 'False'
+      lastUpdateTime: '2023-01-04T13:19:54Z'
+      lastTransitionTime: '2023-01-04T13:19:54Z'
+    - type: Pending
+      status: 'False'
+      lastUpdateTime: '2023-01-04T13:19:57Z'
+      lastTransitionTime: '2023-01-04T13:19:57Z'
+    - type: Running
+      status: 'False'
+      lastUpdateTime: '2023-01-04T13:22:18Z'
+      lastTransitionTime: '2023-01-04T13:22:18Z'
+    - type: Complete
+      status: 'True'
+      lastUpdateTime: '2023-01-04T13:22:18Z'
+      lastTransitionTime: '2023-01-04T13:22:18Z'
+  completionTimestamp: '2023-01-04T13:22:18Z'
+  phase: Complete

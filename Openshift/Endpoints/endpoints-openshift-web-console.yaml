@@ -1,0 +1,41 @@
+﻿kind: Endpoints
+apiVersion: v1
+metadata:
+  name: openshift-web-console
+  namespace: sn-labs-husseinashah
+  uid: 1b2cc9ea-a0e8-44a2-b485-5653e1a6a30e
+  resourceVersion: '809977927'
+  creationTimestamp: '2023-01-04T11:20:50Z'
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: '2023-01-04T11:20:58Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:57Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:endpoints.kubernetes.io/last-change-trigger-time': {}
+        'f:subsets': {}
+subsets:
+  - addresses:
+      - ip: 172.17.36.175
+        nodeName: 10.241.0.46
+        targetRef:
+          kind: Pod
+          namespace: sn-labs-husseinashah
+          name: openshift-web-console-9f5bfb5c-xv4wf
+          uid: 1dcda792-d8a5-4fb9-9895-a8df3fc96680
+      - ip: 172.17.9.149
+        nodeName: 10.241.0.45
+        targetRef:
+          kind: Pod
+          namespace: sn-labs-husseinashah
+          name: openshift-web-console-9f5bfb5c-pgw9t
+          uid: 01761dae-3f51-4632-888b-2cfa5cd4f7a5
+    ports:
+      - port: 8000
+        protocol: TCP

@@ -1,0 +1,282 @@
+﻿kind: Pod
+apiVersion: v1
+metadata:
+  generateName: rp1-5app-nodejs-655b45b7df-
+  annotations:
+    cni.projectcalico.org/containerID: 09be3b514babcd0fbcf8facaef6401c1f1bc925d19d5d7aa227410f615dcdaea
+    cni.projectcalico.org/podIP: 172.17.36.167/32
+    cni.projectcalico.org/podIPs: 172.17.36.167/32
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.36.167"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.36.167"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: ephemeral-storage request for container
+      rp1-5app-nodejs; ephemeral-storage limit for container rp1-5app-nodejs
+    openshift.io/scc: restricted-v2
+    seccomp.security.alpha.kubernetes.io/pod: runtime/default
+  resourceVersion: '810074138'
+  name: rp1-5app-nodejs-655b45b7df-jt4pf
+  uid: 6a6967ca-91bb-4fc1-ad31-52164d5bf8d4
+  creationTimestamp: '2023-01-04T13:28:46Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:28:46Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:deploymentconfig': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"340f1126-ee7a-41d6-ad0f-503a46a9bbe5"}': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"rp1-5app-nodejs"}':
+              .: {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":8080,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:protocol': {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:memory': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:28:47Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:cni.projectcalico.org/containerID': {}
+            'f:cni.projectcalico.org/podIP': {}
+            'f:cni.projectcalico.org/podIPs': {}
+      subresource: status
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:28:47Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:28:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"172.17.36.167"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: rp1-5app-nodejs-655b45b7df
+      uid: 340f1126-ee7a-41d6-ad0f-503a46a9bbe5
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: rp1-5app-nodejs
+    deploymentconfig: rp1-5app-nodejs
+    pod-template-hash: 655b45b7df
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: icr
+    - name: dh
+    - name: default-dockercfg-g7cc8
+  priority: 1
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: 10.241.0.46
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c31,c10'
+    fsGroup: 1000950000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - resources:
+        limits:
+          cpu: 30m
+          ephemeral-storage: 5Gi
+          memory: 100Mi
+        requests:
+          cpu: 3m
+          ephemeral-storage: 512Mi
+          memory: 40Mi
+      terminationMessagePath: /dev/termination-log
+      name: rp1-5app-nodejs
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 1000950000
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+      ports:
+        - containerPort: 8080
+          protocol: TCP
+      imagePullPolicy: Always
+      volumeMounts:
+        - name: kube-api-access-l44ln
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs@sha256:400d37f5d6a01f7476aaaca3c40b4a0491e9723c721cbceb85a0850b7d56d507
+  serviceAccount: default
+  volumes:
+    - name: kube-api-access-l44ln
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+  priorityClassName: normal
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T13:28:46Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T13:28:54Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T13:28:54Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T13:28:46Z'
+  hostIP: 10.241.0.46
+  podIP: 172.17.36.167
+  podIPs:
+    - ip: 172.17.36.167
+  startTime: '2023-01-04T13:28:46Z'
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: rp1-5app-nodejs
+      state:
+        running:
+          startedAt: '2023-01-04T13:28:53Z'
+      imageID: >-
+        image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs@sha256:400d37f5d6a01f7476aaaca3c40b4a0491e9723c721cbceb85a0850b7d56d507
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs@sha256:400d37f5d6a01f7476aaaca3c40b4a0491e9723c721cbceb85a0850b7d56d507
+      lastState: {}
+      containerID: 'cri-o://52b5f86bf86c164419ac7ceab240b69c06a44d972186012ff54b8340ad9ba021'
+  qosClass: Burstable

@@ -1,0 +1,24 @@
+﻿kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: rp1-5app-nodejs-1-sys-config
+  namespace: sn-labs-husseinashah
+  uid: 9a72021b-a04e-4e6b-9b7f-13ff9a7ce8f2
+  resourceVersion: '810067252'
+  creationTimestamp: '2023-01-04T13:19:54Z'
+  ownerReferences:
+    - apiVersion: v1
+      kind: Pod
+      name: rp1-5app-nodejs-1-build
+      uid: a02f38ea-d5fa-4236-a035-f3da3c725002
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:19:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"a02f38ea-d5fa-4236-a035-f3da3c725002"}': {}

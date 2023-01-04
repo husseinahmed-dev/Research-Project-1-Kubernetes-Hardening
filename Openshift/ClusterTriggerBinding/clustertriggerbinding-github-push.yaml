@@ -1,0 +1,56 @@
+﻿apiVersion: triggers.tekton.dev/v1alpha1
+kind: ClusterTriggerBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"triggers.tekton.dev/v1alpha1","kind":"ClusterTriggerBinding","metadata":{"labels":{"operator.tekton.dev/operand-name":"openshift-pipelines-addons"},"name":"github-push","namespace":"openshift-pipelines","ownerReferences":[{"apiVersion":"operator.tekton.dev/v1alpha1","blockOwnerDeletion":true,"controller":true,"kind":"TektonInstallerSet","name":"addon-triggers-dp95q","uid":"3594e4ac-d376-4433-9fad-299b588addf0"}]},"spec":{"params":[{"name":"git-revision","value":"$(body.head_commit.id)"},{"name":"git-commit-message","value":"$(body.head_commit.message)"},{"name":"git-repo-url","value":"$(body.repository.url)"},{"name":"git-repo-name","value":"$(body.repository.name)"},{"name":"content-type","value":"$(header.Content-Type)"},{"name":"pusher-name","value":"$(body.pusher.name)"}]}}
+    manifestival: new
+  resourceVersion: '773077315'
+  name: github-push
+  uid: 47496896-65d0-4037-947f-2661d1223021
+  creationTimestamp: '2022-11-30T16:12:37Z'
+  generation: 1
+  managedFields:
+    - apiVersion: triggers.tekton.dev/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:manifestival': {}
+          'f:labels':
+            .: {}
+            'f:operator.tekton.dev/operand-name': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"3594e4ac-d376-4433-9fad-299b588addf0"}': {}
+        'f:spec':
+          .: {}
+          'f:params': {}
+      manager: manifestival
+      operation: Update
+      time: '2022-11-30T16:12:37Z'
+  ownerReferences:
+    - apiVersion: operator.tekton.dev/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: TektonInstallerSet
+      name: addon-triggers-dp95q
+      uid: 3594e4ac-d376-4433-9fad-299b588addf0
+  labels:
+    operator.tekton.dev/operand-name: openshift-pipelines-addons
+spec:
+  params:
+    - name: git-revision
+      value: $(body.head_commit.id)
+    - name: git-commit-message
+      value: $(body.head_commit.message)
+    - name: git-repo-url
+      value: $(body.repository.url)
+    - name: git-repo-name
+      value: $(body.repository.name)
+    - name: content-type
+      value: $(header.Content-Type)
+    - name: pusher-name
+      value: $(body.pusher.name)

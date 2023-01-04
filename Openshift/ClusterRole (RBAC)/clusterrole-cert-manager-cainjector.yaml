@@ -1,0 +1,103 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: cert-manager-cainjector
+  uid: 28329f50-eb9a-4efb-8756-3808f16908c9
+  resourceVersion: '268137116'
+  creationTimestamp: '2021-05-26T21:16:53Z'
+  labels:
+    app: cainjector
+    app.kubernetes.io/component: cainjector
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: cainjector
+    app.kubernetes.io/version: v1.7.1
+    helm.sh/chart: cert-manager-v1.7.1
+  annotations:
+    meta.helm.sh/release-name: cert-manager
+    meta.helm.sh/release-namespace: cert-manager
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2021-11-22T23:20:43Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:meta.helm.sh/release-name': {}
+            'f:meta.helm.sh/release-namespace': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/version': {}
+            'f:helm.sh/chart': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - ''
+    resources:
+      - secrets
+  - verbs:
+      - get
+      - create
+      - update
+      - patch
+    apiGroups:
+      - ''
+    resources:
+      - events
+  - verbs:
+      - get
+      - list
+      - watch
+      - update
+    apiGroups:
+      - admissionregistration.k8s.io
+    resources:
+      - validatingwebhookconfigurations
+      - mutatingwebhookconfigurations
+  - verbs:
+      - get
+      - list
+      - watch
+      - update
+    apiGroups:
+      - apiregistration.k8s.io
+    resources:
+      - apiservices
+  - verbs:
+      - get
+      - list
+      - watch
+      - update
+    apiGroups:
+      - apiextensions.k8s.io
+    resources:
+      - customresourcedefinitions
+  - verbs:
+      - get
+      - list
+      - watch
+      - update
+    apiGroups:
+      - auditregistration.k8s.io
+    resources:
+      - auditsinks

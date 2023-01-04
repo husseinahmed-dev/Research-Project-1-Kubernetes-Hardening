@@ -1,0 +1,64 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: aggregate-olm-view
+  uid: 81c84e29-44a9-4391-aebc-d298aae40898
+  resourceVersion: '476185113'
+  creationTimestamp: '2021-05-26T19:22:22Z'
+  labels:
+    rbac.authorization.k8s.io/aggregate-to-admin: 'true'
+    rbac.authorization.k8s.io/aggregate-to-edit: 'true'
+    rbac.authorization.k8s.io/aggregate-to-view: 'true'
+  annotations:
+    include.release.openshift.io/ibm-cloud-managed: 'true'
+    include.release.openshift.io/self-managed-high-availability: 'true'
+    include.release.openshift.io/single-node-developer: 'true'
+  ownerReferences:
+    - apiVersion: config.openshift.io/v1
+      kind: ClusterVersion
+      name: version
+      uid: 6a9b93f4-1c67-404e-b391-667669084d02
+  managedFields:
+    - manager: cluster-version-operator
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-06-22T17:02:55Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:include.release.openshift.io/ibm-cloud-managed': {}
+            'f:include.release.openshift.io/self-managed-high-availability': {}
+            'f:include.release.openshift.io/single-node-developer': {}
+          'f:labels':
+            .: {}
+            'f:rbac.authorization.k8s.io/aggregate-to-admin': {}
+            'f:rbac.authorization.k8s.io/aggregate-to-edit': {}
+            'f:rbac.authorization.k8s.io/aggregate-to-view': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"6a9b93f4-1c67-404e-b391-667669084d02"}': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - operators.coreos.com
+    resources:
+      - clusterserviceversions
+      - catalogsources
+      - installplans
+      - subscriptions
+      - operatorgroups
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - packages.operators.coreos.com
+    resources:
+      - packagemanifests
+      - packagemanifests/icon

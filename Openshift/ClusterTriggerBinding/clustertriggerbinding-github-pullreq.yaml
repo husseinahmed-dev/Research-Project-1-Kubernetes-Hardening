@@ -1,0 +1,64 @@
+﻿apiVersion: triggers.tekton.dev/v1alpha1
+kind: ClusterTriggerBinding
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"triggers.tekton.dev/v1alpha1","kind":"ClusterTriggerBinding","metadata":{"labels":{"operator.tekton.dev/operand-name":"openshift-pipelines-addons"},"name":"github-pullreq","namespace":"openshift-pipelines","ownerReferences":[{"apiVersion":"operator.tekton.dev/v1alpha1","blockOwnerDeletion":true,"controller":true,"kind":"TektonInstallerSet","name":"addon-triggers-dp95q","uid":"3594e4ac-d376-4433-9fad-299b588addf0"}]},"spec":{"params":[{"name":"git-repo-url","value":"$(body.repository.html_url)"},{"name":"pullreq-sha","value":"$(body.pull_request.head.sha)"},{"name":"pullreq-action","value":"$(body.action)"},{"name":"pullreq-number","value":"$(body.number)"},{"name":"pullreq-repo-full_name","value":"$(body.repository.full_name)"},{"name":"pullreq-html-url","value":"$(body.pull_request.html_url)"},{"name":"pullreq-title","value":"$(body.pull_request.title)"},{"name":"pullreq-issue-url","value":"$(body.pull_request.issue_url)"},{"name":"organisations-url","value":"$(body.pull_request.user.organizations_url)"},{"name":"user-type","value":"$(body.pull_request.user.type)"}]}}
+    manifestival: new
+  resourceVersion: '773077313'
+  name: github-pullreq
+  uid: a7e72667-6014-4e1b-be80-3d2b5dbbc2ba
+  creationTimestamp: '2022-11-30T16:12:37Z'
+  generation: 1
+  managedFields:
+    - apiVersion: triggers.tekton.dev/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:manifestival': {}
+          'f:labels':
+            .: {}
+            'f:operator.tekton.dev/operand-name': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"3594e4ac-d376-4433-9fad-299b588addf0"}': {}
+        'f:spec':
+          .: {}
+          'f:params': {}
+      manager: manifestival
+      operation: Update
+      time: '2022-11-30T16:12:37Z'
+  ownerReferences:
+    - apiVersion: operator.tekton.dev/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: TektonInstallerSet
+      name: addon-triggers-dp95q
+      uid: 3594e4ac-d376-4433-9fad-299b588addf0
+  labels:
+    operator.tekton.dev/operand-name: openshift-pipelines-addons
+spec:
+  params:
+    - name: git-repo-url
+      value: $(body.repository.html_url)
+    - name: pullreq-sha
+      value: $(body.pull_request.head.sha)
+    - name: pullreq-action
+      value: $(body.action)
+    - name: pullreq-number
+      value: $(body.number)
+    - name: pullreq-repo-full_name
+      value: $(body.repository.full_name)
+    - name: pullreq-html-url
+      value: $(body.pull_request.html_url)
+    - name: pullreq-title
+      value: $(body.pull_request.title)
+    - name: pullreq-issue-url
+      value: $(body.pull_request.issue_url)
+    - name: organisations-url
+      value: $(body.pull_request.user.organizations_url)
+    - name: user-type
+      value: $(body.pull_request.user.type)

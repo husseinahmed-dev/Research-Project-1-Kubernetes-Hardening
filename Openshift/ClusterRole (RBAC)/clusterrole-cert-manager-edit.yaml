@@ -1,0 +1,68 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: cert-manager-edit
+  uid: 01987e2b-e07e-4e5b-8ac1-2ded6ede83d1
+  resourceVersion: '268137134'
+  creationTimestamp: '2021-05-26T21:16:53Z'
+  labels:
+    app: cert-manager
+    app.kubernetes.io/instance: cert-manager
+    app.kubernetes.io/version: v1.7.1
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/managed-by: Helm
+    helm.sh/chart: cert-manager-v1.7.1
+    app.kubernetes.io/name: cert-manager
+    rbac.authorization.k8s.io/aggregate-to-admin: 'true'
+    rbac.authorization.k8s.io/aggregate-to-edit: 'true'
+  annotations:
+    meta.helm.sh/release-name: cert-manager
+    meta.helm.sh/release-namespace: cert-manager
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2021-11-22T23:20:43Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:meta.helm.sh/release-name': {}
+            'f:meta.helm.sh/release-namespace': {}
+          'f:labels':
+            'f:helm.sh/chart': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:rbac.authorization.k8s.io/aggregate-to-edit': {}
+            'f:app': {}
+            'f:app.kubernetes.io/name': {}
+            .: {}
+            'f:rbac.authorization.k8s.io/aggregate-to-admin': {}
+            'f:app.kubernetes.io/version': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/component': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - patch
+      - update
+    apiGroups:
+      - cert-manager.io
+    resources:
+      - certificates
+      - certificaterequests
+      - issuers
+  - verbs:
+      - create
+      - delete
+      - deletecollection
+      - patch
+      - update
+    apiGroups:
+      - acme.cert-manager.io
+    resources:
+      - challenges
+      - orders

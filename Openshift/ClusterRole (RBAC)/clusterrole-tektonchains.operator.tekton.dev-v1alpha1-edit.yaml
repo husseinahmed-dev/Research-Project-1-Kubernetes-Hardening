@@ -1,0 +1,43 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tektonchains.operator.tekton.dev-v1alpha1-edit
+  uid: 181a8d83-a8d3-4e1c-9b71-178bb00b7574
+  resourceVersion: '757693733'
+  creationTimestamp: '2022-11-16T15:25:20Z'
+  labels:
+    olm.opgroup.permissions/aggregate-to-22e514fea180dc6f-edit: 'true'
+    rbac.authorization.k8s.io/aggregate-to-edit: 'true'
+  ownerReferences:
+    - apiVersion: apiextensions.k8s.io/v1
+      kind: CustomResourceDefinition
+      name: tektonchains.operator.tekton.dev
+      uid: 07f9ac58-f66c-4f58-8dff-e34ae2045bdf
+      controller: false
+      blockOwnerDeletion: false
+  managedFields:
+    - manager: olm
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-11-16T15:25:20Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:olm.opgroup.permissions/aggregate-to-22e514fea180dc6f-edit': {}
+            'f:rbac.authorization.k8s.io/aggregate-to-edit': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"07f9ac58-f66c-4f58-8dff-e34ae2045bdf"}': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - create
+      - update
+      - patch
+      - delete
+    apiGroups:
+      - operator.tekton.dev
+    resources:
+      - tektonchains

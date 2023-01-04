@@ -1,0 +1,57 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: ibm-sync-rbac
+  uid: 6408c985-be85-4324-86bd-9e762db73d88
+  resourceVersion: '476210793'
+  creationTimestamp: '2021-05-26T19:25:26Z'
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >-
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"name":"ibm-sync-rbac"},"rules":[{"apiGroups":["*"],"resources":["namespaces"],"verbs":["get","list","watch"]},{"apiGroups":["rbac.authorization.k8s.io"],"resources":["clusterrolebindings","clusterroles","roles","rolebindings"],"verbs":["*"]},{"apiGroups":["ibm.com"],"resources":["rbacsyncs","rbacsyncs/status"],"verbs":["get","list","patch","watch","update"]},{"apiGroups":["user.openshift.io"],"resources":["groups"],"verbs":["*"]}]}
+  managedFields:
+    - manager: OpenAPI-Generator
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2021-05-26T19:25:26Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - '*'
+    resources:
+      - namespaces
+  - verbs:
+      - '*'
+    apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - clusterrolebindings
+      - clusterroles
+      - roles
+      - rolebindings
+  - verbs:
+      - get
+      - list
+      - patch
+      - watch
+      - update
+    apiGroups:
+      - ibm.com
+    resources:
+      - rbacsyncs
+      - rbacsyncs/status
+  - verbs:
+      - '*'
+    apiGroups:
+      - user.openshift.io
+    resources:
+      - groups

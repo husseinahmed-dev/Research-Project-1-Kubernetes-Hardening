@@ -1,0 +1,914 @@
+﻿kind: Pod
+apiVersion: v1
+metadata:
+  annotations:
+    cni.projectcalico.org/containerID: bac5c10799b65dde4da0a49b33204ab5dac1947fa1ae21d2c71a7d4f9e7e2c81
+    cni.projectcalico.org/podIP: ''
+    cni.projectcalico.org/podIPs: ''
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.36.128"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.36.128"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu, ephemeral-storage, memory request for
+      container sti-build; cpu, ephemeral-storage, memory limit for container
+      sti-build; cpu, ephemeral-storage, memory request for init container
+      git-clone; cpu, ephemeral-storage, memory limit for init container
+      git-clone; cpu, ephemeral-storage, memory request for init container
+      manage-dockerfile; cpu, ephemeral-storage, memory limit for init container
+      manage-dockerfile
+    openshift.io/build.name: rp1-5app-nodejs-1
+    openshift.io/scc: privileged
+  resourceVersion: '810068995'
+  name: rp1-5app-nodejs-1-build
+  uid: a02f38ea-d5fa-4236-a035-f3da3c725002
+  creationTimestamp: '2023-01-04T13:19:54Z'
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:19:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/build.name': {}
+          'f:labels':
+            .: {}
+            'f:openshift.io/build.name': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"079347b0-287c-49f9-bf7b-86f8937d4f58"}': {}
+        'f:spec':
+          'f:volumes':
+            'k:{"name":"build-proxy-ca-bundles"}':
+              .: {}
+              'f:configMap':
+                .: {}
+                'f:defaultMode': {}
+                'f:items': {}
+                'f:name': {}
+              'f:name': {}
+            'k:{"name":"container-storage-root"}':
+              .: {}
+              'f:emptyDir': {}
+              'f:name': {}
+            'k:{"name":"build-ca-bundles"}':
+              .: {}
+              'f:configMap':
+                .: {}
+                'f:defaultMode': {}
+                'f:items': {}
+                'f:name': {}
+              'f:name': {}
+            'k:{"name":"buildcachedir"}':
+              .: {}
+              'f:hostPath':
+                .: {}
+                'f:path': {}
+                'f:type': {}
+              'f:name': {}
+            .: {}
+            'k:{"name":"buildworkdir"}':
+              .: {}
+              'f:emptyDir': {}
+              'f:name': {}
+            'k:{"name":"builder-dockercfg-j6znr-push"}':
+              .: {}
+              'f:name': {}
+              'f:secret':
+                .: {}
+                'f:defaultMode': {}
+                'f:secretName': {}
+            'k:{"name":"build-blob-cache"}':
+              .: {}
+              'f:emptyDir': {}
+              'f:name': {}
+            'k:{"name":"build-system-configs"}':
+              .: {}
+              'f:configMap':
+                .: {}
+                'f:defaultMode': {}
+                'f:name': {}
+              'f:name': {}
+            'k:{"name":"node-pullsecrets"}':
+              .: {}
+              'f:hostPath':
+                .: {}
+                'f:path': {}
+                'f:type': {}
+              'f:name': {}
+            'k:{"name":"builder-dockercfg-j6znr-pull"}':
+              .: {}
+              'f:name': {}
+              'f:secret':
+                .: {}
+                'f:defaultMode': {}
+                'f:secretName': {}
+          'f:containers':
+            'k:{"name":"sti-build"}':
+              'f:image': {}
+              'f:volumeMounts':
+                'k:{"mountPath":"/var/run/secrets/openshift.io/push"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/tmp/build"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/run/configs/openshift.io/build-system"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/var/run/configs/openshift.io/pki"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/run/configs/openshift.io/certs"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                .: {}
+                'k:{"mountPath":"/var/run/secrets/openshift.io/pull"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/var/cache/blobs"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/lib/kubelet/config.json"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/lib/containers/storage"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/lib/containers/cache"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources': {}
+              'f:args': {}
+              'f:env':
+                'k:{"name":"BUILD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"SOURCE_REPOSITORY"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"BUILD_STORAGE_DRIVER"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"DROP_CAPS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PULL_DOCKERCFG_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"BUILD_SIGNATURE_POLICY_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"HTTPS_PROXY"}':
+                  .: {}
+                  'f:name': {}
+                'k:{"name":"SOURCE_URI"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                .: {}
+                'k:{"name":"BUILD_REGISTRIES_CONF_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"LANG"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"NO_PROXY"}':
+                  .: {}
+                  'f:name': {}
+                'k:{"name":"BUILD_BLOBCACHE_DIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PUSH_DOCKERCFG_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"HTTP_PROXY"}':
+                  .: {}
+                  'f:name': {}
+                'k:{"name":"BUILD_REGISTRIES_DIR_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"BUILD_STORAGE_CONF_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"SOURCE_CONTEXT_DIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"ALLOWED_UIDS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:securityContext':
+                .: {}
+                'f:privileged': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+          'f:dnsPolicy': {}
+          'f:serviceAccount': {}
+          'f:restartPolicy': {}
+          'f:activeDeadlineSeconds': {}
+          'f:schedulerName': {}
+          'f:nodeSelector': {}
+          'f:terminationGracePeriodSeconds': {}
+          'f:initContainers':
+            .: {}
+            'k:{"name":"git-clone"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/tmp/build"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/cache/blobs"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/run/configs/openshift.io/build-system"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/var/run/configs/openshift.io/certs"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/run/configs/openshift.io/pki"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources': {}
+              'f:args': {}
+              'f:env':
+                'k:{"name":"BUILD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"SOURCE_REPOSITORY"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"DROP_CAPS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"BUILD_SIGNATURE_POLICY_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"HTTPS_PROXY"}':
+                  .: {}
+                  'f:name': {}
+                'k:{"name":"SOURCE_URI"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                .: {}
+                'k:{"name":"BUILD_REGISTRIES_CONF_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"LANG"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"NO_PROXY"}':
+                  .: {}
+                  'f:name': {}
+                'k:{"name":"BUILD_BLOBCACHE_DIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"HTTP_PROXY"}':
+                  .: {}
+                  'f:name': {}
+                'k:{"name":"BUILD_REGISTRIES_DIR_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"BUILD_STORAGE_CONF_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"SOURCE_CONTEXT_DIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"ALLOWED_UIDS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+            'k:{"name":"manage-dockerfile"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/tmp/build"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/cache/blobs"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/run/configs/openshift.io/build-system"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                  'f:readOnly': {}
+                'k:{"mountPath":"/var/run/configs/openshift.io/certs"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+                'k:{"mountPath":"/var/run/configs/openshift.io/pki"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources': {}
+              'f:args': {}
+              'f:env':
+                'k:{"name":"BUILD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"SOURCE_REPOSITORY"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"DROP_CAPS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"BUILD_SIGNATURE_POLICY_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"HTTPS_PROXY"}':
+                  .: {}
+                  'f:name': {}
+                'k:{"name":"SOURCE_URI"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                .: {}
+                'k:{"name":"BUILD_REGISTRIES_CONF_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"LANG"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"NO_PROXY"}':
+                  .: {}
+                  'f:name': {}
+                'k:{"name":"BUILD_BLOBCACHE_DIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"HTTP_PROXY"}':
+                  .: {}
+                  'f:name': {}
+                'k:{"name":"BUILD_REGISTRIES_DIR_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"BUILD_STORAGE_CONF_PATH"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"SOURCE_CONTEXT_DIR"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"ALLOWED_UIDS"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+          'f:serviceAccountName': {}
+          'f:enableServiceLinks': {}
+          'f:securityContext': {}
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:19:56Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:cni.projectcalico.org/containerID': {}
+            'f:cni.projectcalico.org/podIP': {}
+            'f:cni.projectcalico.org/podIPs': {}
+      subresource: status
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:19:56Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:22:16Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:initContainerStatuses': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"172.17.36.128"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: Build
+      name: rp1-5app-nodejs-1
+      uid: 079347b0-287c-49f9-bf7b-86f8937d4f58
+      controller: true
+  labels:
+    openshift.io/build.name: rp1-5app-nodejs-1
+spec:
+  nodeSelector:
+    kubernetes.io/os: linux
+  restartPolicy: Never
+  activeDeadlineSeconds: 604800
+  initContainers:
+    - resources:
+        limits:
+          cpu: 500m
+          ephemeral-storage: 5Gi
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          ephemeral-storage: 512Mi
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      name: git-clone
+      env:
+        - name: BUILD
+          value: >
+            {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"rp1-5app-nodejs-1","namespace":"sn-labs-husseinashah","uid":"079347b0-287c-49f9-bf7b-86f8937d4f58","resourceVersion":"810067241","generation":1,"creationTimestamp":"2023-01-04T13:19:54Z","labels":{"app":"rp1-5app-nodejs","app.kubernetes.io/component":"rp1-5app-nodejs","app.kubernetes.io/instance":"rp1-5app-nodejs","app.kubernetes.io/name":"nodejs","app.kubernetes.io/part-of":"research-project-1-kubernetes-hardening-git-app","app.openshift.io/runtime":"nodejs","app.openshift.io/runtime-version":"16-ubi8","buildconfig":"rp1-5app-nodejs","openshift.io/build-config.name":"rp1-5app-nodejs","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"rp1-5app-nodejs","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"rp1-5app-nodejs","uid":"3e748b85-534b-45dc-a7f3-04e0a0aa15f7","controller":true}],"managedFields":[{"manager":"Go-http-client","operation":"Update","apiVersion":"build.openshift.io/v1","time":"2023-01-04T13:19:54Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.number":{}},"f:labels":{".":{},"f:app":{},"f:app.kubernetes.io/component":{},"f:app.kubernetes.io/instance":{},"f:app.kubernetes.io/name":{},"f:app.kubernetes.io/part-of":{},"f:app.openshift.io/runtime":{},"f:app.openshift.io/runtime-version":{},"f:buildconfig":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.start-policy":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"3e748b85-534b-45dc-a7f3-04e0a0aa15f7\"}":{}}},"f:spec":{"f:output":{"f:to":{}},"f:serviceAccount":{},"f:source":{"f:contextDir":{},"f:git":{".":{},"f:uri":{}},"f:type":{}},"f:strategy":{"f:sourceStrategy":{".":{},"f:from":{},"f:pullSecret":{}},"f:type":{}},"f:triggeredBy":{}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"New\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:status":{},"f:type":{}}},"f:config":{},"f:phase":{}}}}]},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git"},"contextDir":"/applications/5_APP
+            (nodejs-ex)"},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6"},"pullSecret":{"name":"builder-dockercfg-j6znr"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs:latest"},"pushSecret":{"name":"builder-dockercfg-j6znr"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Image
+            change","imageChangeBuild":{"imageID":"image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6","fromRef":{"kind":"ImageStreamTag","namespace":"openshift","name":"nodejs:16-ubi8"}}}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs:latest","config":{"kind":"BuildConfig","namespace":"sn-labs-husseinashah","name":"rp1-5app-nodejs"},"output":{},"conditions":[{"type":"New","status":"True","lastUpdateTime":"2023-01-04T13:19:54Z","lastTransitionTime":"2023-01-04T13:19:54Z"}]}}
+        - name: LANG
+          value: C.utf8
+        - name: SOURCE_REPOSITORY
+          value: >-
+            https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+        - name: SOURCE_URI
+          value: >-
+            https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+        - name: SOURCE_CONTEXT_DIR
+          value: /applications/5_APP (nodejs-ex)
+        - name: ALLOWED_UIDS
+          value: 1-
+        - name: DROP_CAPS
+          value: 'KILL,MKNOD,SETGID,SETUID'
+        - name: BUILD_REGISTRIES_CONF_PATH
+          value: /var/run/configs/openshift.io/build-system/registries.conf
+        - name: BUILD_REGISTRIES_DIR_PATH
+          value: /var/run/configs/openshift.io/build-system/registries.d
+        - name: BUILD_SIGNATURE_POLICY_PATH
+          value: /var/run/configs/openshift.io/build-system/policy.json
+        - name: BUILD_STORAGE_CONF_PATH
+          value: /var/run/configs/openshift.io/build-system/storage.conf
+        - name: BUILD_BLOBCACHE_DIR
+          value: /var/cache/blobs
+        - name: HTTP_PROXY
+        - name: HTTPS_PROXY
+        - name: NO_PROXY
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: buildworkdir
+          mountPath: /tmp/build
+        - name: build-system-configs
+          readOnly: true
+          mountPath: /var/run/configs/openshift.io/build-system
+        - name: build-ca-bundles
+          mountPath: /var/run/configs/openshift.io/certs
+        - name: build-proxy-ca-bundles
+          mountPath: /var/run/configs/openshift.io/pki
+        - name: build-blob-cache
+          mountPath: /var/cache/blobs
+        - name: kube-api-access-rdkbm
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: FallbackToLogsOnError
+      image: >-
+        us.icr.io/armada-master/ocp-release-4.11.17-x86_64@sha256:2cbbf6bff06a9897b3188b6df9705879bd99ba17ea7de8090fc68f2260451c04
+      args:
+        - openshift-git-clone
+        - '--v=0'
+    - resources:
+        limits:
+          cpu: 500m
+          ephemeral-storage: 5Gi
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          ephemeral-storage: 512Mi
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      name: manage-dockerfile
+      env:
+        - name: BUILD
+          value: >
+            {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"rp1-5app-nodejs-1","namespace":"sn-labs-husseinashah","uid":"079347b0-287c-49f9-bf7b-86f8937d4f58","resourceVersion":"810067241","generation":1,"creationTimestamp":"2023-01-04T13:19:54Z","labels":{"app":"rp1-5app-nodejs","app.kubernetes.io/component":"rp1-5app-nodejs","app.kubernetes.io/instance":"rp1-5app-nodejs","app.kubernetes.io/name":"nodejs","app.kubernetes.io/part-of":"research-project-1-kubernetes-hardening-git-app","app.openshift.io/runtime":"nodejs","app.openshift.io/runtime-version":"16-ubi8","buildconfig":"rp1-5app-nodejs","openshift.io/build-config.name":"rp1-5app-nodejs","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"rp1-5app-nodejs","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"rp1-5app-nodejs","uid":"3e748b85-534b-45dc-a7f3-04e0a0aa15f7","controller":true}],"managedFields":[{"manager":"Go-http-client","operation":"Update","apiVersion":"build.openshift.io/v1","time":"2023-01-04T13:19:54Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.number":{}},"f:labels":{".":{},"f:app":{},"f:app.kubernetes.io/component":{},"f:app.kubernetes.io/instance":{},"f:app.kubernetes.io/name":{},"f:app.kubernetes.io/part-of":{},"f:app.openshift.io/runtime":{},"f:app.openshift.io/runtime-version":{},"f:buildconfig":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.start-policy":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"3e748b85-534b-45dc-a7f3-04e0a0aa15f7\"}":{}}},"f:spec":{"f:output":{"f:to":{}},"f:serviceAccount":{},"f:source":{"f:contextDir":{},"f:git":{".":{},"f:uri":{}},"f:type":{}},"f:strategy":{"f:sourceStrategy":{".":{},"f:from":{},"f:pullSecret":{}},"f:type":{}},"f:triggeredBy":{}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"New\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:status":{},"f:type":{}}},"f:config":{},"f:phase":{}}}}]},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git"},"contextDir":"/applications/5_APP
+            (nodejs-ex)"},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6"},"pullSecret":{"name":"builder-dockercfg-j6znr"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs:latest"},"pushSecret":{"name":"builder-dockercfg-j6znr"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Image
+            change","imageChangeBuild":{"imageID":"image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6","fromRef":{"kind":"ImageStreamTag","namespace":"openshift","name":"nodejs:16-ubi8"}}}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs:latest","config":{"kind":"BuildConfig","namespace":"sn-labs-husseinashah","name":"rp1-5app-nodejs"},"output":{},"conditions":[{"type":"New","status":"True","lastUpdateTime":"2023-01-04T13:19:54Z","lastTransitionTime":"2023-01-04T13:19:54Z"}]}}
+        - name: LANG
+          value: C.utf8
+        - name: SOURCE_REPOSITORY
+          value: >-
+            https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+        - name: SOURCE_URI
+          value: >-
+            https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+        - name: SOURCE_CONTEXT_DIR
+          value: /applications/5_APP (nodejs-ex)
+        - name: ALLOWED_UIDS
+          value: 1-
+        - name: DROP_CAPS
+          value: 'KILL,MKNOD,SETGID,SETUID'
+        - name: BUILD_REGISTRIES_CONF_PATH
+          value: /var/run/configs/openshift.io/build-system/registries.conf
+        - name: BUILD_REGISTRIES_DIR_PATH
+          value: /var/run/configs/openshift.io/build-system/registries.d
+        - name: BUILD_SIGNATURE_POLICY_PATH
+          value: /var/run/configs/openshift.io/build-system/policy.json
+        - name: BUILD_STORAGE_CONF_PATH
+          value: /var/run/configs/openshift.io/build-system/storage.conf
+        - name: BUILD_BLOBCACHE_DIR
+          value: /var/cache/blobs
+        - name: HTTP_PROXY
+        - name: HTTPS_PROXY
+        - name: NO_PROXY
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: buildworkdir
+          mountPath: /tmp/build
+        - name: build-system-configs
+          readOnly: true
+          mountPath: /var/run/configs/openshift.io/build-system
+        - name: build-ca-bundles
+          mountPath: /var/run/configs/openshift.io/certs
+        - name: build-proxy-ca-bundles
+          mountPath: /var/run/configs/openshift.io/pki
+        - name: build-blob-cache
+          mountPath: /var/cache/blobs
+        - name: kube-api-access-rdkbm
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: FallbackToLogsOnError
+      image: >-
+        us.icr.io/armada-master/ocp-release-4.11.17-x86_64@sha256:2cbbf6bff06a9897b3188b6df9705879bd99ba17ea7de8090fc68f2260451c04
+      args:
+        - openshift-manage-dockerfile
+        - '--v=0'
+  serviceAccountName: builder
+  imagePullSecrets:
+    - name: builder-dockercfg-j6znr
+  priority: 1
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: 10.241.0.46
+  securityContext: {}
+  containers:
+    - resources:
+        limits:
+          cpu: 500m
+          ephemeral-storage: 5Gi
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          ephemeral-storage: 512Mi
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      name: sti-build
+      env:
+        - name: BUILD
+          value: >
+            {"kind":"Build","apiVersion":"build.openshift.io/v1","metadata":{"name":"rp1-5app-nodejs-1","namespace":"sn-labs-husseinashah","uid":"079347b0-287c-49f9-bf7b-86f8937d4f58","resourceVersion":"810067241","generation":1,"creationTimestamp":"2023-01-04T13:19:54Z","labels":{"app":"rp1-5app-nodejs","app.kubernetes.io/component":"rp1-5app-nodejs","app.kubernetes.io/instance":"rp1-5app-nodejs","app.kubernetes.io/name":"nodejs","app.kubernetes.io/part-of":"research-project-1-kubernetes-hardening-git-app","app.openshift.io/runtime":"nodejs","app.openshift.io/runtime-version":"16-ubi8","buildconfig":"rp1-5app-nodejs","openshift.io/build-config.name":"rp1-5app-nodejs","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"rp1-5app-nodejs","openshift.io/build.number":"1"},"ownerReferences":[{"apiVersion":"build.openshift.io/v1","kind":"BuildConfig","name":"rp1-5app-nodejs","uid":"3e748b85-534b-45dc-a7f3-04e0a0aa15f7","controller":true}],"managedFields":[{"manager":"Go-http-client","operation":"Update","apiVersion":"build.openshift.io/v1","time":"2023-01-04T13:19:54Z","fieldsType":"FieldsV1","fieldsV1":{"f:metadata":{"f:annotations":{".":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.number":{}},"f:labels":{".":{},"f:app":{},"f:app.kubernetes.io/component":{},"f:app.kubernetes.io/instance":{},"f:app.kubernetes.io/name":{},"f:app.kubernetes.io/part-of":{},"f:app.openshift.io/runtime":{},"f:app.openshift.io/runtime-version":{},"f:buildconfig":{},"f:openshift.io/build-config.name":{},"f:openshift.io/build.start-policy":{}},"f:ownerReferences":{".":{},"k:{\"uid\":\"3e748b85-534b-45dc-a7f3-04e0a0aa15f7\"}":{}}},"f:spec":{"f:output":{"f:to":{}},"f:serviceAccount":{},"f:source":{"f:contextDir":{},"f:git":{".":{},"f:uri":{}},"f:type":{}},"f:strategy":{"f:sourceStrategy":{".":{},"f:from":{},"f:pullSecret":{}},"f:type":{}},"f:triggeredBy":{}},"f:status":{"f:conditions":{".":{},"k:{\"type\":\"New\"}":{".":{},"f:lastTransitionTime":{},"f:lastUpdateTime":{},"f:status":{},"f:type":{}}},"f:config":{},"f:phase":{}}}}]},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git"},"contextDir":"/applications/5_APP
+            (nodejs-ex)"},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6"},"pullSecret":{"name":"builder-dockercfg-j6znr"}}},"output":{"to":{"kind":"DockerImage","name":"image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs:latest"},"pushSecret":{"name":"builder-dockercfg-j6znr"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Image
+            change","imageChangeBuild":{"imageID":"image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6","fromRef":{"kind":"ImageStreamTag","namespace":"openshift","name":"nodejs:16-ubi8"}}}]},"status":{"phase":"New","outputDockerImageReference":"image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs:latest","config":{"kind":"BuildConfig","namespace":"sn-labs-husseinashah","name":"rp1-5app-nodejs"},"output":{},"conditions":[{"type":"New","status":"True","lastUpdateTime":"2023-01-04T13:19:54Z","lastTransitionTime":"2023-01-04T13:19:54Z"}]}}
+        - name: LANG
+          value: C.utf8
+        - name: SOURCE_REPOSITORY
+          value: >-
+            https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+        - name: SOURCE_URI
+          value: >-
+            https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+        - name: SOURCE_CONTEXT_DIR
+          value: /applications/5_APP (nodejs-ex)
+        - name: ALLOWED_UIDS
+          value: 1-
+        - name: DROP_CAPS
+          value: 'KILL,MKNOD,SETGID,SETUID'
+        - name: PUSH_DOCKERCFG_PATH
+          value: /var/run/secrets/openshift.io/push
+        - name: PULL_DOCKERCFG_PATH
+          value: /var/run/secrets/openshift.io/pull
+        - name: BUILD_REGISTRIES_CONF_PATH
+          value: /var/run/configs/openshift.io/build-system/registries.conf
+        - name: BUILD_REGISTRIES_DIR_PATH
+          value: /var/run/configs/openshift.io/build-system/registries.d
+        - name: BUILD_SIGNATURE_POLICY_PATH
+          value: /var/run/configs/openshift.io/build-system/policy.json
+        - name: BUILD_STORAGE_CONF_PATH
+          value: /var/run/configs/openshift.io/build-system/storage.conf
+        - name: BUILD_STORAGE_DRIVER
+          value: overlay
+        - name: BUILD_BLOBCACHE_DIR
+          value: /var/cache/blobs
+        - name: HTTP_PROXY
+        - name: HTTPS_PROXY
+        - name: NO_PROXY
+      securityContext:
+        privileged: true
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: node-pullsecrets
+          mountPath: /var/lib/kubelet/config.json
+        - name: buildworkdir
+          mountPath: /tmp/build
+        - name: buildcachedir
+          mountPath: /var/lib/containers/cache
+        - name: builder-dockercfg-j6znr-push
+          readOnly: true
+          mountPath: /var/run/secrets/openshift.io/push
+        - name: builder-dockercfg-j6znr-pull
+          readOnly: true
+          mountPath: /var/run/secrets/openshift.io/pull
+        - name: build-system-configs
+          readOnly: true
+          mountPath: /var/run/configs/openshift.io/build-system
+        - name: build-ca-bundles
+          mountPath: /var/run/configs/openshift.io/certs
+        - name: build-proxy-ca-bundles
+          mountPath: /var/run/configs/openshift.io/pki
+        - name: container-storage-root
+          mountPath: /var/lib/containers/storage
+        - name: build-blob-cache
+          mountPath: /var/cache/blobs
+        - name: kube-api-access-rdkbm
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: FallbackToLogsOnError
+      image: >-
+        us.icr.io/armada-master/ocp-release-4.11.17-x86_64@sha256:2cbbf6bff06a9897b3188b6df9705879bd99ba17ea7de8090fc68f2260451c04
+      args:
+        - openshift-sti-build
+        - '--v=0'
+  serviceAccount: builder
+  volumes:
+    - name: node-pullsecrets
+      hostPath:
+        path: /var/lib/kubelet/config.json
+        type: File
+    - name: buildcachedir
+      hostPath:
+        path: /var/lib/containers/cache
+        type: ''
+    - name: buildworkdir
+      emptyDir: {}
+    - name: builder-dockercfg-j6znr-push
+      secret:
+        secretName: builder-dockercfg-j6znr
+        defaultMode: 384
+    - name: builder-dockercfg-j6znr-pull
+      secret:
+        secretName: builder-dockercfg-j6znr
+        defaultMode: 384
+    - name: build-system-configs
+      configMap:
+        name: rp1-5app-nodejs-1-sys-config
+        defaultMode: 420
+    - name: build-ca-bundles
+      configMap:
+        name: rp1-5app-nodejs-1-ca
+        items:
+          - key: service-ca.crt
+            path: 'certs.d/image-registry.openshift-image-registry.svc:5000/ca.crt'
+        defaultMode: 420
+    - name: build-proxy-ca-bundles
+      configMap:
+        name: rp1-5app-nodejs-1-global-ca
+        items:
+          - key: ca-bundle.crt
+            path: tls-ca-bundle.pem
+        defaultMode: 420
+    - name: container-storage-root
+      emptyDir: {}
+    - name: build-blob-cache
+      emptyDir: {}
+    - name: kube-api-access-rdkbm
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+  priorityClassName: normal
+status:
+  containerStatuses:
+    - restartCount: 0
+      started: false
+      ready: false
+      name: sti-build
+      state:
+        terminated:
+          exitCode: 0
+          reason: Completed
+          startedAt: '2023-01-04T13:19:59Z'
+          finishedAt: '2023-01-04T13:22:15Z'
+          containerID: >-
+            cri-o://2e4aa8aa8ad3c940172fdf9573bcf8c66e6ed7d31c2863cb260eea82244ff521
+      imageID: >-
+        quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2cbbf6bff06a9897b3188b6df9705879bd99ba17ea7de8090fc68f2260451c04
+      image: >-
+        us.icr.io/armada-master/ocp-release-4.11.17-x86_64@sha256:2cbbf6bff06a9897b3188b6df9705879bd99ba17ea7de8090fc68f2260451c04
+      lastState: {}
+      containerID: 'cri-o://2e4aa8aa8ad3c940172fdf9573bcf8c66e6ed7d31c2863cb260eea82244ff521'
+  qosClass: Burstable
+  podIPs:
+    - ip: 172.17.36.128
+  podIP: 172.17.36.128
+  hostIP: 10.241.0.46
+  startTime: '2023-01-04T13:19:54Z'
+  initContainerStatuses:
+    - name: git-clone
+      state:
+        terminated:
+          exitCode: 0
+          reason: Completed
+          startedAt: '2023-01-04T13:19:56Z'
+          finishedAt: '2023-01-04T13:19:58Z'
+          containerID: >-
+            cri-o://cb97ff31493ef853eae23affa0e3503d0d2a1965c96321c70cc2046ee6434a59
+      lastState: {}
+      ready: true
+      restartCount: 0
+      image: >-
+        us.icr.io/armada-master/ocp-release-4.11.17-x86_64@sha256:2cbbf6bff06a9897b3188b6df9705879bd99ba17ea7de8090fc68f2260451c04
+      imageID: >-
+        quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2cbbf6bff06a9897b3188b6df9705879bd99ba17ea7de8090fc68f2260451c04
+      containerID: 'cri-o://cb97ff31493ef853eae23affa0e3503d0d2a1965c96321c70cc2046ee6434a59'
+    - name: manage-dockerfile
+      state:
+        terminated:
+          exitCode: 0
+          reason: Completed
+          startedAt: '2023-01-04T13:19:58Z'
+          finishedAt: '2023-01-04T13:19:58Z'
+          containerID: >-
+            cri-o://3138e75d11de92c15c1b9dca1b37da0433eb1adf47d946b522c7536472e3cfb2
+      lastState: {}
+      ready: true
+      restartCount: 0
+      image: >-
+        us.icr.io/armada-master/ocp-release-4.11.17-x86_64@sha256:2cbbf6bff06a9897b3188b6df9705879bd99ba17ea7de8090fc68f2260451c04
+      imageID: >-
+        quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:2cbbf6bff06a9897b3188b6df9705879bd99ba17ea7de8090fc68f2260451c04
+      containerID: 'cri-o://3138e75d11de92c15c1b9dca1b37da0433eb1adf47d946b522c7536472e3cfb2'
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T13:19:59Z'
+      reason: PodCompleted
+    - type: Ready
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T13:22:16Z'
+      reason: PodCompleted
+    - type: ContainersReady
+      status: 'False'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T13:22:16Z'
+      reason: PodCompleted
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T13:19:54Z'
+  phase: Succeeded

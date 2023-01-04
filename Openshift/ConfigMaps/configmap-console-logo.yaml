@@ -1,0 +1,53 @@
+﻿kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: console-logo
+  namespace: sn-labs-husseinashah
+  uid: 52434a98-5e33-45a9-bc16-524895d9a08c
+  resourceVersion: '809977708'
+  creationTimestamp: '2023-01-04T11:20:50Z'
+  managedFields:
+    - manager: unknown
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          .: {}
+          'f:console-logo.svg': {}
+data:
+  console-logo.svg: >-
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?> <svg
+    xmlns:dc="https://purl.org/dc/elements/1.1/"
+    xmlns:cc="https://creativecommons.org/ns#"
+    xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:svg="https://www.w3.org/2000/svg" xmlns="https://www.w3.org/2000/svg"
+    xmlns:sodipodi="https://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:inkscape="https://www.inkscape.org/namespaces/inkscape"
+    sodipodi:docname="snlabs-white.svg" inkscape:version="1.0beta1 (32d4812,
+    2019-09-19)" id="svg8" version="1.1" viewBox="0 0 479.38571 72.274261"
+    height="72.274261mm" width="479.38571mm"> <defs id="defs2"> <rect
+    id="rect1485" height="202.52391" width="468.02344" y="-8.0505212"
+    x="-73.631601" /> </defs> <sodipodi:namedview inkscape:window-maximized="0"
+    inkscape:window-y="23" inkscape:window-x="0" inkscape:window-height="949"
+    inkscape:window-width="1680" showgrid="false" inkscape:document-rotation="0"
+    inkscape:current-layer="layer1" inkscape:document-units="mm"
+    inkscape:cy="499.79361" inkscape:cx="260.79484" inkscape:zoom="0.36971973"
+    inkscape:pageshadow="2" inkscape:pageopacity="0.0" borderopacity="1.0"
+    bordercolor="#666666" pagecolor="#ffffff" id="base" /> <metadata
+    id="metadata5"> <rdf:RDF> <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format> <dc:type
+    rdf:resource="https://purl.org/dc/dcmitype/StillImage" />
+    <dc:title></dc:title> </cc:Work> </rdf:RDF> </metadata> <g
+    transform="translate(-0.79414483,-1.2526971)" id="layer1"
+    inkscape:groupmode="layer" inkscape:label="Layer 1"> <text id="text1481"
+    y="48.674709" x="0.41558415"
+    style="font-style:normal;font-weight:normal;font-size:33.8667px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+    xml:space="preserve"><tspan
+    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'IBM
+    Plex Sans';-inkscape-font-specification:'IBM Plex
+    Sans';fill:#ffffff;stroke-width:0.264583" y="48.674709" x="0.41558415"
+    id="tspan1479" sodipodi:role="line">Skills Network Labs</tspan></text> <text
+    style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;shape-inside:url(#rect1485);fill:#000000;fill-opacity:1;stroke:none"
+    id="text1483" xml:space="preserve" /> </g> </svg>

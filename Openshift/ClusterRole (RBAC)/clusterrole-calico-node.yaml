@@ -1,0 +1,181 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: calico-node
+  uid: 865cf182-0609-4439-9514-73664c754bda
+  resourceVersion: '758984287'
+  creationTimestamp: '2021-05-26T19:41:19Z'
+  ownerReferences:
+    - apiVersion: operator.tigera.io/v1
+      kind: Installation
+      name: default
+      uid: d66aecf4-902d-4a95-a89c-0fee2c40c114
+      controller: true
+      blockOwnerDeletion: true
+  finalizers:
+    - tigera.io/cni-protector
+  managedFields:
+    - manager: operator
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-11-17T21:27:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:finalizers':
+            .: {}
+            'v:"tigera.io/cni-protector"': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"d66aecf4-902d-4a95-a89c-0fee2c40c114"}': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - list
+      - watch
+    apiGroups:
+      - discovery.k8s.io
+    resources:
+      - endpointslices
+  - verbs:
+      - get
+    apiGroups:
+      - ''
+    resources:
+      - pods
+      - nodes
+      - namespaces
+  - verbs:
+      - watch
+      - list
+      - get
+    apiGroups:
+      - ''
+    resources:
+      - endpoints
+      - services
+  - verbs:
+      - patch
+      - update
+    apiGroups:
+      - ''
+    resources:
+      - nodes/status
+  - verbs:
+      - watch
+      - list
+    apiGroups:
+      - networking.k8s.io
+    resources:
+      - networkpolicies
+  - verbs:
+      - watch
+      - list
+    apiGroups:
+      - ''
+    resources:
+      - pods
+      - namespaces
+      - serviceaccounts
+  - verbs:
+      - patch
+    apiGroups:
+      - ''
+    resources:
+      - pods/status
+  - verbs:
+      - get
+    apiGroups:
+      - ''
+    resources:
+      - configmaps
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - bgpconfigurations
+      - bgppeers
+      - blockaffinities
+      - clusterinformations
+      - felixconfigurations
+      - globalnetworkpolicies
+      - stagedglobalnetworkpolicies
+      - globalnetworksets
+      - hostendpoints
+      - ipamblocks
+      - ippools
+      - ipreservations
+      - networkpolicies
+      - stagedkubernetesnetworkpolicies
+      - stagednetworkpolicies
+      - networksets
+  - verbs:
+      - get
+      - list
+      - watch
+      - update
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - caliconodestatuses
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - globalbgpconfigs
+      - globalfelixconfigs
+  - verbs:
+      - create
+      - update
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - clusterinformations
+      - felixconfigurations
+      - ippools
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - ''
+    resources:
+      - nodes
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - blockaffinities
+      - ipamblocks
+      - ipamhandles
+  - verbs:
+      - get
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - ipamconfigs
+  - verbs:
+      - watch
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - blockaffinities
+  - verbs:
+      - create
+    apiGroups:
+      - ''
+    resources:
+      - serviceaccounts/token
+    resourceNames:
+      - calico-node

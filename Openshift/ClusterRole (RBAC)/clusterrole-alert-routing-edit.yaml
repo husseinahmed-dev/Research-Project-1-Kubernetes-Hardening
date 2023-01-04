@@ -1,0 +1,22 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: alert-routing-edit
+  uid: 9b27cea3-4a35-46a8-be9a-e40e80ae41c7
+  resourceVersion: '706306653'
+  creationTimestamp: '2022-10-20T13:34:55Z'
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-10-20T13:34:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:rules': {}
+rules:
+  - verbs:
+      - '*'
+    apiGroups:
+      - monitoring.coreos.com
+    resources:
+      - alertmanagerconfigs

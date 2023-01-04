@@ -1,0 +1,47 @@
+﻿kind: Endpoints
+apiVersion: v1
+metadata:
+  name: rp1-5app-nodejs
+  namespace: sn-labs-husseinashah
+  uid: 239d63d9-23f9-4094-8970-3848be5ebb2e
+  resourceVersion: '810086279'
+  creationTimestamp: '2023-01-04T13:19:55Z'
+  labels:
+    app: rp1-5app-nodejs
+    app.kubernetes.io/component: rp1-5app-nodejs
+    app.kubernetes.io/instance: rp1-5app-nodejs
+    app.kubernetes.io/name: nodejs
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T13:45:05Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+        'f:subsets': {}
+subsets:
+  - addresses:
+      - ip: 172.17.36.167
+        nodeName: 10.241.0.46
+        targetRef:
+          kind: Pod
+          namespace: sn-labs-husseinashah
+          name: rp1-5app-nodejs-655b45b7df-jt4pf
+          uid: 6a6967ca-91bb-4fc1-ad31-52164d5bf8d4
+    ports:
+      - name: 8080-tcp
+        port: 8080
+        protocol: TCP

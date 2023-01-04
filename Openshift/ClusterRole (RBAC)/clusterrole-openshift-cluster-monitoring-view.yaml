@@ -1,0 +1,46 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: openshift-cluster-monitoring-view
+  uid: 73612b45-45bb-41e6-a5ad-7998f75804d7
+  resourceVersion: '810254335'
+  creationTimestamp: '2021-05-26T19:43:54Z'
+  labels:
+    olm.owner: openshift-cluster-monitoring
+    olm.owner.kind: OperatorGroup
+    olm.owner.namespace: openshift-monitoring
+  managedFields:
+    - manager: olm
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2021-09-18T16:41:41Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:aggregationRule':
+          .: {}
+          'f:clusterRoleSelectors': {}
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:olm.owner': {}
+            'f:olm.owner.kind': {}
+            'f:olm.owner.namespace': {}
+rules: null
+aggregationRule:
+  clusterRoleSelectors:
+    - matchLabels:
+        olm.opgroup.permissions/aggregate-to-9d83214931a1a37e-view: 'true'
+    - matchLabels:
+        olm.opgroup.permissions/aggregate-to-1dece667180a208d-view: 'true'
+    - matchLabels:
+        olm.opgroup.permissions/aggregate-to-ec80c7aff541a927-view: 'true'
+    - matchLabels:
+        olm.opgroup.permissions/aggregate-to-dde4314ecb73c236-view: 'true'
+    - matchLabels:
+        olm.opgroup.permissions/aggregate-to-ec91e8bc27c81ed7-view: 'true'
+    - matchLabels:
+        olm.opgroup.permissions/aggregate-to-70eafa6e059987b5-view: 'true'
+    - matchLabels:
+        olm.opgroup.permissions/aggregate-to-70f7b566ae4e6a1c-view: 'true'
+    - matchLabels:
+        olm.opgroup.permissions/aggregate-to-cda6b569020ccb44-view: 'true'

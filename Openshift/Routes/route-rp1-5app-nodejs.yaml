@@ -1,0 +1,75 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: rp1-5app-nodejs
+  namespace: sn-labs-husseinashah
+  uid: 20972653-7c89-436c-9813-95da510cc6ea
+  resourceVersion: '810067278'
+  creationTimestamp: '2023-01-04T13:19:55Z'
+  labels:
+    app: rp1-5app-nodejs
+    app.kubernetes.io/component: rp1-5app-nodejs
+    app.kubernetes.io/instance: rp1-5app-nodejs
+    app.kubernetes.io/name: nodejs
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-01-04T13:19:55Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-01-04T13:19:55Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: >-
+    rp1-5app-nodejs-sn-labs-husseinashah.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud
+  to:
+    kind: Service
+    name: rp1-5app-nodejs
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: >-
+        rp1-5app-nodejs-sn-labs-husseinashah.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2023-01-04T13:19:55Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: >-
+        router-default.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud

@@ -1,0 +1,53 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: argocd-server
+  uid: 1f74fb73-bfcd-45fb-8dca-291cc6c4602b
+  resourceVersion: '441061801'
+  creationTimestamp: '2022-06-01T11:55:46Z'
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/name: argocd-server
+    app.kubernetes.io/part-of: argocd
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"server","app.kubernetes.io/name":"argocd-server","app.kubernetes.io/part-of":"argocd"},"name":"argocd-server"},"rules":[{"apiGroups":["*"],"resources":["*"],"verbs":["delete","get","patch"]},{"apiGroups":[""],"resources":["events"],"verbs":["list"]},{"apiGroups":[""],"resources":["pods","pods/log"],"verbs":["get"]}]}
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-06-01T11:55:46Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - delete
+      - get
+      - patch
+    apiGroups:
+      - '*'
+    resources:
+      - '*'
+  - verbs:
+      - list
+    apiGroups:
+      - ''
+    resources:
+      - events
+  - verbs:
+      - get
+    apiGroups:
+      - ''
+    resources:
+      - pods
+      - pods/log

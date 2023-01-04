@@ -1,0 +1,30 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tekton-config-read-role
+  uid: cb9e9775-e54b-46ff-a56f-9764d393093d
+  resourceVersion: '773071028'
+  creationTimestamp: '2022-11-16T15:25:08Z'
+  labels:
+    olm.owner: openshift-pipelines-operator-rh.v1.8.2
+  managedFields:
+    - manager: catalog
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-11-16T15:25:56Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:olm.owner': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - get
+      - watch
+      - list
+    apiGroups:
+      - operator.tekton.dev
+    resources:
+      - tektonconfigs

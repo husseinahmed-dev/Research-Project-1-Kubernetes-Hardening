@@ -1,0 +1,73 @@
+﻿kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: ibmc-vpc-block-metro-custom
+  uid: d86bb2aa-04f6-406c-b03a-bcd5681ba520
+  resourceVersion: '741930564'
+  creationTimestamp: '2022-05-30T19:36:02Z'
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+    app: ibm-vpc-block-csi-driver
+    razee/force-apply: 'true'
+  annotations:
+    armada-service: addon-vpc-block-csi-driver
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"allowVolumeExpansion":true,"apiVersion":"storage.k8s.io/v1","kind":"StorageClass","metadata":{"annotations":{"armada-service":"addon-vpc-block-csi-driver","razee.io/build-url":"https://travis.ibm.com/alchemy-containers/addon-vpc-block-csi-driver/builds/78797403","razee.io/source-url":"https://github.ibm.com/alchemy-containers/addon-vpc-block-csi-driver/commit/6c1b4c7e2e3d8b81543c338580459b6c708c3e0b","version":"4.3.8_1705"},"labels":{"addonmanager.kubernetes.io/mode":"Reconcile","app":"ibm-vpc-block-csi-driver","razee/force-apply":"true"},"name":"ibmc-vpc-block-metro-custom"},"parameters":{"billingType":"hourly","classVersion":"1","csi.storage.k8s.io/fstype":"ext4","encrypted":"false","encryptionKey":"","iops":"400","profile":"custom","region":"","resourceGroup":"","tags":"","zone":""},"provisioner":"vpc.block.csi.ibm.io","reclaimPolicy":"Delete","volumeBindingMode":"WaitForFirstConsumer"}
+    razee.io/build-url: >-
+      https://travis.ibm.com/alchemy-containers/addon-vpc-block-csi-driver/builds/78797403
+    razee.io/source-url: >-
+      https://github.ibm.com/alchemy-containers/addon-vpc-block-csi-driver/commit/6c1b4c7e2e3d8b81543c338580459b6c708c3e0b
+    version: 4.3.8_1705
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: storage.k8s.io/v1
+      time: '2022-05-30T19:36:02Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:allowVolumeExpansion': {}
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:armada-service': {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:razee.io/build-url': {}
+            'f:razee.io/source-url': {}
+            'f:version': {}
+          'f:labels':
+            .: {}
+            'f:addonmanager.kubernetes.io/mode': {}
+            'f:app': {}
+            'f:razee/force-apply': {}
+        'f:parameters':
+          'f:zone': {}
+          'f:billingType': {}
+          'f:region': {}
+          'f:encryptionKey': {}
+          'f:csi.storage.k8s.io/fstype': {}
+          'f:tags': {}
+          .: {}
+          'f:encrypted': {}
+          'f:classVersion': {}
+          'f:profile': {}
+          'f:iops': {}
+          'f:resourceGroup': {}
+        'f:provisioner': {}
+        'f:reclaimPolicy': {}
+        'f:volumeBindingMode': {}
+provisioner: vpc.block.csi.ibm.io
+parameters:
+  classVersion: '1'
+  csi.storage.k8s.io/fstype: ext4
+  encrypted: 'false'
+  profile: custom
+  iops: '400'
+  zone: ''
+  resourceGroup: ''
+  region: ''
+  billingType: hourly
+  tags: ''
+  encryptionKey: ''
+reclaimPolicy: Delete
+allowVolumeExpansion: true
+volumeBindingMode: WaitForFirstConsumer

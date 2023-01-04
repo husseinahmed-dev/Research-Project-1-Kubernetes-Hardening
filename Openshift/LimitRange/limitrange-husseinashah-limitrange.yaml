@@ -1,0 +1,28 @@
+﻿kind: LimitRange
+apiVersion: v1
+metadata:
+  name: husseinashah-limitrange
+  namespace: sn-labs-husseinashah
+  uid: 3d645939-d072-41c9-9619-fa392eb2af1e
+  resourceVersion: '809977734'
+  creationTimestamp: '2023-01-04T11:20:50Z'
+  managedFields:
+    - manager: unknown
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:limits': {}
+spec:
+  limits:
+    - type: Container
+      default:
+        cpu: 500m
+        ephemeral-storage: 5Gi
+        memory: 512Mi
+      defaultRequest:
+        cpu: 200m
+        ephemeral-storage: 512Mi
+        memory: 128Mi

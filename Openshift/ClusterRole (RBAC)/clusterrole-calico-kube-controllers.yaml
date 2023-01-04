@@ -1,0 +1,101 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: calico-kube-controllers
+  uid: b4b4567e-c708-4526-8b2d-5179b9d10b48
+  resourceVersion: '758984349'
+  creationTimestamp: '2021-05-26T19:41:19Z'
+  ownerReferences:
+    - apiVersion: operator.tigera.io/v1
+      kind: Installation
+      name: default
+      uid: d66aecf4-902d-4a95-a89c-0fee2c40c114
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: operator
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2021-05-26T19:41:19Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"d66aecf4-902d-4a95-a89c-0fee2c40c114"}': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - watch
+      - list
+      - get
+    apiGroups:
+      - ''
+    resources:
+      - nodes
+      - endpoints
+      - services
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - ''
+    resources:
+      - pods
+  - verbs:
+      - list
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - ipreservations
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+      - watch
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - blockaffinities
+      - ipamblocks
+      - ipamhandles
+      - networksets
+  - verbs:
+      - list
+      - watch
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - ippools
+  - verbs:
+      - get
+      - create
+      - update
+      - list
+      - watch
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - clusterinformations
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - hostendpoints
+  - verbs:
+      - get
+      - create
+      - update
+      - watch
+    apiGroups:
+      - crd.projectcalico.org
+    resources:
+      - kubecontrollersconfigurations

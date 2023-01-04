@@ -1,0 +1,36 @@
+﻿kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: pipelines-scc-rolebinding
+  namespace: sn-labs-husseinashah
+  uid: ee566f10-3e47-4c25-9e68-536ca5fc0107
+  resourceVersion: '809977802'
+  creationTimestamp: '2023-01-04T11:20:52Z'
+  ownerReferences:
+    - apiVersion: operator.tekton.dev/v1alpha1
+      kind: TektonInstallerSet
+      name: rhosp-rbac-zfwgf
+      uid: 6964b787-84d8-4878-978e-6e0f4f6ff99e
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: openshift-pipelines-operator
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2023-01-04T11:20:52Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"6964b787-84d8-4878-978e-6e0f4f6ff99e"}': {}
+        'f:roleRef': {}
+        'f:subjects': {}
+subjects:
+  - kind: ServiceAccount
+    name: pipeline
+    namespace: sn-labs-husseinashah
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pipelines-scc-clusterrole

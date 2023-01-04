@@ -1,0 +1,33 @@
+﻿kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: 'system:image-pullers'
+  namespace: sn-labs-husseinashah
+  uid: 4e1e7448-52c0-4984-b330-51426e4461da
+  resourceVersion: '809977772'
+  creationTimestamp: '2023-01-04T11:20:50Z'
+  annotations:
+    openshift.io/description: >-
+      Allows all pods in this namespace to pull images from this namespace.  It
+      is auto-managed by a controller; remove subjects to disable.
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/description': {}
+        'f:roleRef': {}
+        'f:subjects': {}
+subjects:
+  - kind: Group
+    apiGroup: rbac.authorization.k8s.io
+    name: 'system:serviceaccounts:sn-labs-husseinashah'
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: 'system:image-puller'

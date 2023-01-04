@@ -1,0 +1,50 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tekton-clustertriggerbindings-view
+  uid: 3443fd87-9c4d-4766-8e57-4fc274faaee8
+  resourceVersion: '773077312'
+  creationTimestamp: '2022-11-30T16:12:37Z'
+  labels:
+    operator.tekton.dev/operand-name: openshift-pipelines-addons
+    rbac.authorization.k8s.io/aggregate-to-view: 'true'
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"labels":{"operator.tekton.dev/operand-name":"openshift-pipelines-addons","rbac.authorization.k8s.io/aggregate-to-view":"true"},"name":"tekton-clustertriggerbindings-view","ownerReferences":[{"apiVersion":"operator.tekton.dev/v1alpha1","blockOwnerDeletion":true,"controller":true,"kind":"TektonInstallerSet","name":"addon-triggers-dp95q","uid":"3594e4ac-d376-4433-9fad-299b588addf0"}]},"rules":[{"apiGroups":["triggers.tekton.dev"],"resources":["clustertriggerbindings"],"verbs":["get","list","watch"]}]}
+    manifestival: new
+  ownerReferences:
+    - apiVersion: operator.tekton.dev/v1alpha1
+      kind: TektonInstallerSet
+      name: addon-triggers-dp95q
+      uid: 3594e4ac-d376-4433-9fad-299b588addf0
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: manifestival
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-11-30T16:12:37Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:manifestival': {}
+          'f:labels':
+            .: {}
+            'f:operator.tekton.dev/operand-name': {}
+            'f:rbac.authorization.k8s.io/aggregate-to-view': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"3594e4ac-d376-4433-9fad-299b588addf0"}': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - triggers.tekton.dev
+    resources:
+      - clustertriggerbindings

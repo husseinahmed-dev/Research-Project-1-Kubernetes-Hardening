@@ -1,0 +1,34 @@
+﻿kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: 'system:deployers'
+  namespace: sn-labs-husseinashah
+  uid: 38c2baad-20ee-46ad-bb19-fa90ba88ae46
+  resourceVersion: '809977786'
+  creationTimestamp: '2023-01-04T11:20:51Z'
+  annotations:
+    openshift.io/description: >-
+      Allows deploymentconfigs in this namespace to rollout pods in this
+      namespace.  It is auto-managed by a controller; remove subjects to
+      disable.
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2023-01-04T11:20:51Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/description': {}
+        'f:roleRef': {}
+        'f:subjects': {}
+subjects:
+  - kind: ServiceAccount
+    name: deployer
+    namespace: sn-labs-husseinashah
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: 'system:deployer'

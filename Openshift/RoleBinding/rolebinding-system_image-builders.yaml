@@ -1,0 +1,33 @@
+﻿kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: 'system:image-builders'
+  namespace: sn-labs-husseinashah
+  uid: 62f1b8df-9021-406e-b392-f60e00006b66
+  resourceVersion: '809977781'
+  creationTimestamp: '2023-01-04T11:20:51Z'
+  annotations:
+    openshift.io/description: >-
+      Allows builds in this namespace to push images to this namespace.  It is
+      auto-managed by a controller; remove subjects to disable.
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/description': {}
+        'f:roleRef': {}
+        'f:subjects': {}
+subjects:
+  - kind: ServiceAccount
+    name: builder
+    namespace: sn-labs-husseinashah
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: 'system:image-builder'

@@ -1,0 +1,114 @@
+﻿kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: >-
+      https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '810067240'
+  name: rp1-5app-nodejs
+  uid: 3e748b85-534b-45dc-a7f3-04e0a0aa15f7
+  creationTimestamp: '2023-01-04T13:19:54Z'
+  generation: 2
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-01-04T13:19:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:imageChangeTriggers': {}
+          'f:lastVersion': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-01-04T13:19:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+        'f:spec':
+          'f:output':
+            'f:to': {}
+          'f:runPolicy': {}
+          'f:source':
+            'f:contextDir': {}
+            'f:git':
+              .: {}
+              'f:uri': {}
+            'f:type': {}
+          'f:strategy':
+            'f:sourceStrategy':
+              .: {}
+              'f:from': {}
+            'f:type': {}
+          'f:triggers': {}
+  namespace: sn-labs-husseinashah
+  labels:
+    app: rp1-5app-nodejs
+    app.kubernetes.io/component: rp1-5app-nodejs
+    app.kubernetes.io/instance: rp1-5app-nodejs
+    app.kubernetes.io/name: nodejs
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'rp1-5app-nodejs:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'nodejs:16-ubi8'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: >-
+        https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+    contextDir: /applications/5_APP (nodejs-ex)
+  triggers:
+    - type: Generic
+      generic:
+        secretReference:
+          name: rp1-5app-nodejs-generic-webhook-secret
+    - type: GitHub
+      github:
+        secretReference:
+          name: rp1-5app-nodejs-github-webhook-secret
+    - type: ImageChange
+      imageChange: {}
+    - type: ConfigChange
+  runPolicy: Serial
+status:
+  lastVersion: 1
+  imageChangeTriggers:
+    - lastTriggeredImageID: >-
+        image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:a192d3d1ff9933e9f0ebf1401c3c7f016705981c7bed1e18e1fb9cd9a049a3e6
+      from:
+        namespace: openshift
+        name: 'nodejs:16-ubi8'
+      lastTriggerTime: '2023-01-04T13:19:54Z'

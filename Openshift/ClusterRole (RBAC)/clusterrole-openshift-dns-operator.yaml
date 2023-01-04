@@ -1,0 +1,126 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: openshift-dns-operator
+  uid: b603db0b-4f49-49b0-8a4f-c8146f788964
+  resourceVersion: '476225242'
+  creationTimestamp: '2021-05-26T19:21:52Z'
+  annotations:
+    include.release.openshift.io/ibm-cloud-managed: 'true'
+    include.release.openshift.io/self-managed-high-availability: 'true'
+    include.release.openshift.io/single-node-developer: 'true'
+  ownerReferences:
+    - apiVersion: config.openshift.io/v1
+      kind: ClusterVersion
+      name: version
+      uid: 6a9b93f4-1c67-404e-b391-667669084d02
+  managedFields:
+    - manager: cluster-version-operator
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-06-22T17:24:58Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:include.release.openshift.io/ibm-cloud-managed': {}
+            'f:include.release.openshift.io/self-managed-high-availability': {}
+            'f:include.release.openshift.io/single-node-developer': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"6a9b93f4-1c67-404e-b391-667669084d02"}': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - '*'
+    apiGroups:
+      - operator.openshift.io
+    resources:
+      - dnses
+  - verbs:
+      - update
+    apiGroups:
+      - operator.openshift.io
+    resources:
+      - dnses/status
+  - verbs:
+      - '*'
+    apiGroups:
+      - apps
+      - extensions
+    resources:
+      - daemonsets
+  - verbs:
+      - '*'
+    apiGroups:
+      - ''
+    resources:
+      - namespaces
+      - services
+      - serviceaccounts
+      - configmaps
+      - endpoints
+      - pods
+      - nodes
+  - verbs:
+      - list
+      - watch
+    apiGroups:
+      - discovery.k8s.io
+    resources:
+      - endpointslices
+  - verbs:
+      - create
+      - update
+      - get
+    apiGroups:
+      - monitoring.coreos.com
+    resources:
+      - servicemonitors
+  - verbs:
+      - create
+    apiGroups:
+      - authentication.k8s.io
+    resources:
+      - tokenreviews
+  - verbs:
+      - create
+    apiGroups:
+      - authorization.k8s.io
+    resources:
+      - subjectaccessreviews
+  - verbs:
+      - create
+      - get
+      - list
+      - watch
+    apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - clusterroles
+      - clusterrolebindings
+      - roles
+      - rolebindings
+  - verbs:
+      - update
+    apiGroups:
+      - rbac.authorization.k8s.io
+    resources:
+      - clusterroles
+  - verbs:
+      - create
+      - get
+      - list
+      - watch
+    apiGroups:
+      - config.openshift.io
+    resources:
+      - clusteroperators
+      - networks
+  - verbs:
+      - update
+    apiGroups:
+      - config.openshift.io
+    resources:
+      - clusteroperators/status

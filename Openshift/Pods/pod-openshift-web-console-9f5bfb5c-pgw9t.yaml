@@ -1,0 +1,497 @@
+﻿kind: Pod
+apiVersion: v1
+metadata:
+  generateName: openshift-web-console-9f5bfb5c-
+  annotations:
+    cni.projectcalico.org/containerID: 374fe32ef9b22e7ff43cc98ad7bc72e8f8121ec86c082dfe63ea81a6967f8c05
+    cni.projectcalico.org/podIP: 172.17.9.149/32
+    cni.projectcalico.org/podIPs: 172.17.9.149/32
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.9.149"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.9.149"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    openshift.io/scc: restricted-v2
+    seccomp.security.alpha.kubernetes.io/pod: runtime/default
+  resourceVersion: '809977914'
+  name: openshift-web-console-9f5bfb5c-pgw9t
+  uid: 01761dae-3f51-4632-888b-2cfa5cd4f7a5
+  creationTimestamp: '2023-01-04T11:20:50Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"95818cfc-7c8d-4700-be4d-cabcfa63d86c"}': {}
+        'f:spec':
+          'f:volumes':
+            .: {}
+            'k:{"name":"console-logo"}':
+              .: {}
+              'f:configMap':
+                .: {}
+                'f:defaultMode': {}
+                'f:name': {}
+              'f:name': {}
+          'f:containers':
+            'k:{"name":"console"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/var/logo/"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:ephemeral-storage': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:ephemeral-storage': {}
+                  'f:memory': {}
+              'f:command': {}
+              'f:livenessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:initialDelaySeconds': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:readinessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":8443,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:name': {}
+                  'f:protocol': {}
+              'f:name': {}
+            'k:{"name":"openshift-web-console"}':
+              'f:image': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources':
+                .: {}
+                'f:limits':
+                  .: {}
+                  'f:cpu': {}
+                  'f:ephemeral-storage': {}
+                  'f:memory': {}
+                'f:requests':
+                  .: {}
+                  'f:cpu': {}
+                  'f:ephemeral-storage': {}
+                  'f:memory': {}
+              'f:livenessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:initialDelaySeconds': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:env':
+                .: {}
+                'k:{"name":"CONSOLE"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PASSWORD"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"PROXY"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+                'k:{"name":"USERNAME"}':
+                  .: {}
+                  'f:name': {}
+                  'f:value': {}
+              'f:readinessProbe':
+                .: {}
+                'f:failureThreshold': {}
+                'f:httpGet':
+                  .: {}
+                  'f:path': {}
+                  'f:port': {}
+                  'f:scheme': {}
+                'f:periodSeconds': {}
+                'f:successThreshold': {}
+                'f:timeoutSeconds': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":8000,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:name': {}
+                  'f:protocol': {}
+              'f:name': {}
+          'f:dnsPolicy': {}
+          'f:tolerations': {}
+          'f:serviceAccount': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:terminationGracePeriodSeconds': {}
+          'f:serviceAccountName': {}
+          'f:enableServiceLinks': {}
+          'f:securityContext': {}
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:52Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:cni.projectcalico.org/containerID': {}
+            'f:cni.projectcalico.org/podIP': {}
+            'f:cni.projectcalico.org/podIPs': {}
+      subresource: status
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:52Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:57Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"172.17.9.149"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: openshift-web-console-9f5bfb5c
+      uid: 95818cfc-7c8d-4700-be4d-cabcfa63d86c
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: openshift-web-console
+    pod-template-hash: 9f5bfb5c
+spec:
+  restartPolicy: Always
+  serviceAccountName: husseinashah
+  priority: 1
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: 10.241.0.45
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c31,c10'
+    fsGroup: 1000950000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - resources:
+        limits:
+          cpu: 50m
+          ephemeral-storage: 1Gi
+          memory: 256Mi
+        requests:
+          cpu: 10m
+          ephemeral-storage: 512Mi
+          memory: 100Mi
+      readinessProbe:
+        httpGet:
+          path: /health
+          port: 8000
+          scheme: HTTP
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      terminationMessagePath: /dev/termination-log
+      name: openshift-web-console
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 8000
+          scheme: HTTP
+        initialDelaySeconds: 150
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      env:
+        - name: PROXY
+          value: husseinashah-console.openshift-sandbox.labs.cognitiveclass.ai
+        - name: USERNAME
+          value: husseinashah
+        - name: PASSWORD
+          value: aHVzc2VpbmFzaGFo
+        - name: CONSOLE
+          value: 'localhost:8443'
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 1000950000
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+      ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: kube-api-access-kmlb6
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: FallbackToLogsOnError
+      image: 'docker.io/doctorqubit/basic-auth-proxy:0.1.13'
+    - resources:
+        limits:
+          cpu: 50m
+          ephemeral-storage: 1Gi
+          memory: 256Mi
+        requests:
+          cpu: 10m
+          ephemeral-storage: 512Mi
+          memory: 100Mi
+      readinessProbe:
+        httpGet:
+          path: /health
+          port: 8443
+          scheme: HTTP
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      terminationMessagePath: /dev/termination-log
+      name: console
+      command:
+        - /opt/bridge/bin/bridge
+        - '--public-dir=/opt/bridge/static'
+        - >-
+          --base-address=https://husseinashah-console.openshift-sandbox.labs.cognitiveclass.ai
+        - '--user-auth=disabled'
+        - '--listen=http://0.0.0.0:8443'
+        - '--custom-logo-file=/var/logo/console-logo.svg'
+        - '--branding=openshift'
+        - '--custom-product-name=Skills Network OpenShift Lab'
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 8443
+          scheme: HTTP
+        initialDelaySeconds: 150
+        timeoutSeconds: 1
+        periodSeconds: 10
+        successThreshold: 1
+        failureThreshold: 3
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 1000950000
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+      ports:
+        - name: http
+          containerPort: 8443
+          protocol: TCP
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: console-logo
+          mountPath: /var/logo/
+        - name: kube-api-access-kmlb6
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: FallbackToLogsOnError
+      image: >-
+        quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:33724b503bea2463abe308dd9fb8ad69d9e8946815219fe2e4c8c33d0716bb1c
+  serviceAccount: husseinashah
+  volumes:
+    - name: console-logo
+      configMap:
+        name: console-logo
+        defaultMode: 420
+    - name: kube-api-access-kmlb6
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node-role.kubernetes.io/master
+      operator: Exists
+      effect: NoSchedule
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 120
+    - key: node.kubernetes.io/not-reachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 120
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+  priorityClassName: normal
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T11:20:50Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T11:20:57Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T11:20:57Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T11:20:50Z'
+  hostIP: 10.241.0.45
+  podIP: 172.17.9.149
+  podIPs:
+    - ip: 172.17.9.149
+  startTime: '2023-01-04T11:20:50Z'
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: console
+      state:
+        running:
+          startedAt: '2023-01-04T11:20:55Z'
+      imageID: >-
+        quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:33724b503bea2463abe308dd9fb8ad69d9e8946815219fe2e4c8c33d0716bb1c
+      image: >-
+        quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:33724b503bea2463abe308dd9fb8ad69d9e8946815219fe2e4c8c33d0716bb1c
+      lastState: {}
+      containerID: 'cri-o://54d9d383f966856412a4b4e9548acd54fb2870256a10913163c11b2ba8ab15cd'
+    - restartCount: 0
+      started: true
+      ready: true
+      name: openshift-web-console
+      state:
+        running:
+          startedAt: '2023-01-04T11:20:53Z'
+      imageID: >-
+        docker.io/doctorqubit/basic-auth-proxy@sha256:f3cd15bd3584d97c03a0f5c79cb28ece58ca6d6dd549700068cc878893427e01
+      image: 'docker.io/doctorqubit/basic-auth-proxy:0.1.13'
+      lastState: {}
+      containerID: 'cri-o://501d278d9a6ca186af645577a563ef42fd0a5abc243a19ca249bddb62770c8a0'
+  qosClass: Burstable

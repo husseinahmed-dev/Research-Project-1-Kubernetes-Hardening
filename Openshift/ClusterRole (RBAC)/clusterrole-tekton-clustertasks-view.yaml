@@ -1,0 +1,50 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tekton-clustertasks-view
+  uid: a79a6107-6662-49cb-a67e-a2f8f57ee0bb
+  resourceVersion: '810212141'
+  creationTimestamp: '2022-11-30T16:12:24Z'
+  labels:
+    operator.tekton.dev/operand-name: openshift-pipelines-addons
+    rbac.authorization.k8s.io/aggregate-to-view: 'true'
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"labels":{"operator.tekton.dev/operand-name":"openshift-pipelines-addons","rbac.authorization.k8s.io/aggregate-to-view":"true"},"name":"tekton-clustertasks-view","ownerReferences":[{"apiVersion":"operator.tekton.dev/v1alpha1","blockOwnerDeletion":true,"controller":true,"kind":"TektonInstallerSet","name":"addon-versioned-clustertasks-1-8-ch5lv","uid":"6699af90-27e3-4c7d-aee5-35a534a1ab0a"}]},"rules":[{"apiGroups":["tekton.dev"],"resources":["clustertasks"],"verbs":["get","list","watch"]}]}
+    manifestival: new
+  ownerReferences:
+    - apiVersion: operator.tekton.dev/v1alpha1
+      kind: TektonInstallerSet
+      name: addon-versioned-clustertasks-1-8-ch5lv
+      uid: 6699af90-27e3-4c7d-aee5-35a534a1ab0a
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: manifestival
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2023-01-04T16:34:20Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:manifestival': {}
+          'f:labels':
+            .: {}
+            'f:operator.tekton.dev/operand-name': {}
+            'f:rbac.authorization.k8s.io/aggregate-to-view': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"6699af90-27e3-4c7d-aee5-35a534a1ab0a"}': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - get
+      - list
+      - watch
+    apiGroups:
+      - tekton.dev
+    resources:
+      - clustertasks

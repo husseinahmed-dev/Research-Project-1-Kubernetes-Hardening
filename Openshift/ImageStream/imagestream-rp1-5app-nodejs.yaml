@@ -1,0 +1,59 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: >-
+      https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '810068911'
+  name: rp1-5app-nodejs
+  uid: d41afb16-e3b1-430e-82dd-c4b5343c2f27
+  creationTimestamp: '2023-01-04T13:19:54Z'
+  generation: 1
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2023-01-04T13:19:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+            'f:app.openshift.io/runtime-version': {}
+  namespace: sn-labs-husseinashah
+  labels:
+    app: rp1-5app-nodejs
+    app.kubernetes.io/component: rp1-5app-nodejs
+    app.kubernetes.io/instance: rp1-5app-nodejs
+    app.kubernetes.io/name: nodejs
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+    app.openshift.io/runtime: nodejs
+    app.openshift.io/runtime-version: 16-ubi8
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: >-
+    image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs
+  tags:
+    - tag: latest
+      items:
+        - created: '2023-01-04T13:22:14Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/rp1-5app-nodejs@sha256:400d37f5d6a01f7476aaaca3c40b4a0491e9723c721cbceb85a0850b7d56d507
+          image: >-
+            sha256:400d37f5d6a01f7476aaaca3c40b4a0491e9723c721cbceb85a0850b7d56d507
+          generation: 1

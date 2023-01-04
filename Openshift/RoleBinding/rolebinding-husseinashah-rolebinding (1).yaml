@@ -1,0 +1,28 @@
+﻿kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: husseinashah-rolebinding
+  namespace: sn-labs-husseinashah
+  uid: b028a6f4-adf8-4600-ba93-8833327e86aa
+  resourceVersion: '809977738'
+  creationTimestamp: '2023-01-04T11:20:50Z'
+  managedFields:
+    - manager: unknown
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:roleRef': {}
+        'f:subjects': {}
+subjects:
+  - kind: ServiceAccount
+    name: husseinashah
+    namespace: sn-labs-husseinashah
+  - kind: ServiceAccount
+    name: default
+    namespace: sn-labs-husseinashah
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: learner-environment-role

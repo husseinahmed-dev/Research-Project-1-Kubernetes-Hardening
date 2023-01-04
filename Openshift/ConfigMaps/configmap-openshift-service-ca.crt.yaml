@@ -1,0 +1,72 @@
+﻿kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: openshift-service-ca.crt
+  namespace: sn-labs-husseinashah
+  uid: 3e32c263-7bb5-47d5-aa54-b8886222b4ed
+  resourceVersion: '809977701'
+  creationTimestamp: '2023-01-04T11:20:50Z'
+  annotations:
+    service.beta.openshift.io/inject-cabundle: 'true'
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          'f:service-ca.crt': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data': {}
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:service.beta.openshift.io/inject-cabundle': {}
+data:
+  service-ca.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIDUTCCAjmgAwIBAgIIaM6/3HznIjYwDQYJKoZIhvcNAQELBQAwNjE0MDIGA1UE
+    Awwrb3BlbnNoaWZ0LXNlcnZpY2Utc2VydmluZy1zaWduZXJAMTYyMjA1ODE0NjAe
+    Fw0yMjA2MjUxOTQyMzhaFw0yNDA4MjMxOTQyMzlaMDYxNDAyBgNVBAMMK29wZW5z
+    aGlmdC1zZXJ2aWNlLXNlcnZpbmctc2lnbmVyQDE2MjIwNTgxNDYwggEiMA0GCSqG
+    SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCxOnUxHKToOSOMrphj8jk/GCc9DC2jFn5s
+    6z5bcptssKn2z6SkyzAy5quefPdYe/q0Qc246WiZZTOzAmvjQpnx5K8dGgqTs7oc
+    /iXPpshXGet+4W31MMFFWiaBqoaQkjD7i+Vhxd0AaL4t+jpBQaj4v7suEB1tehHu
+    ZDSlSlWcI+1a3l8472THln38GE0hDx55LABjlMs5tIX8ZxO98rS4uQGyoc4YtkTJ
+    zDF3qUeBIuwEv/Gv1B41r9u5UJ+wa6daSAX+fLIHwOwA6yfL2yH3yV8QiLnjMbpM
+    DqlZYFQsCfLEbeDiRNns+1bjD1qNAOKUkvcN96Zxin4b2rR4oYLXAgMBAAGjYzBh
+    MA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBRbstBY
+    0IQ4eyFnd+dLRoFVZUU+8zAfBgNVHSMEGDAWgBRbstBY0IQ4eyFnd+dLRoFVZUU+
+    8zANBgkqhkiG9w0BAQsFAAOCAQEAGB5htjOkjdIQyOPQZz0t3cc9qT0vXSok2QJN
+    8Y3AUcIcJHmVqSqZmlT1Bi5xpSO3nplVK93IkooONB32qjxTWjJytex5F5YoRTQn
+    TyX/EfDYzS5B1jDhrhD5iaodGk45HJ6jnhV1HE0SK/GXsEsZ1pwMT0YTAaWlnPXL
+    XLZVvbGk69rDVuUxYXDK3DHI9CS6aEt2Ygs71rpeI95T8B1bGLXKRCGlNmA7qfc+
+    04W7xfs31+3Z5NQCEl4vyGrnsMWQKb+dJpnpGy/Sb8LwZqFAbuo0ykxd0UcXheqL
+    bk+BmGHsJEJX+Wx82rDTmLvmoKTzzeFSdyQrdHCYQ8zYF541sw==
+    -----END CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
+    MIIDUTCCAjmgAwIBAgIIEolnXwuYD5MwDQYJKoZIhvcNAQELBQAwNjE0MDIGA1UE
+    Awwrb3BlbnNoaWZ0LXNlcnZpY2Utc2VydmluZy1zaWduZXJAMTYyMjA1ODE0NjAe
+    Fw0yMTA1MjYxOTQyMjVaFw0yMzA3MjUxOTQyMzlaMDYxNDAyBgNVBAMMK29wZW5z
+    aGlmdC1zZXJ2aWNlLXNlcnZpbmctc2lnbmVyQDE2MjIwNTgxNDYwggEiMA0GCSqG
+    SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCjHQ5BZGkP3H/B1pp+3ePY88m1tjw8Nxwn
+    3J9kB870xZ10RPZpId98VWpfXXgMy8SHGblCFBtLs1cTdn2THM+4Y5Vfeg7vw49V
+    mncClLyiUsoewLX5hzjtzuoNZt7bPuHFiurv+Zj/jxyNAQoWgYqbJYKBxMuUZYRi
+    e+tFV0XNLJ5T6Bel1+JJBsJPvMTIfXTbNkVZxHzkXLZ9FoOGqVQRNceyF4DprIqU
+    azu5QNxOZD/6d+F8NAwFiXb2ix8zJy5MvoctP4Uwi8b2a3dWD0Sr09BmGmDkiBcK
+    jiWhRKjci4nAByZNz9X1+gQrjpRLlOE6I2cKq++F4n7LojyAc6f3AgMBAAGjYzBh
+    MA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBQ8gc1g
+    4UvPH1GasAoxulANT2ckTjAfBgNVHSMEGDAWgBRbstBY0IQ4eyFnd+dLRoFVZUU+
+    8zANBgkqhkiG9w0BAQsFAAOCAQEAMdTrIaVincSVVJoGfyOl+i1YvskrySnOpO89
+    7kIMHl5oVcYhBPRUjC6tUu26rXjMBv+3rXhzVtIzoNwtUV2b86ae+HNPYMF/AAqd
+    3/Uf8a7FbRzQWC5NO3IRt2Q+Ga50XX3CZ7Eyb1vV091BUxOGjEtoZtVWtJyh+gi0
+    GwfDE+g5WCQzCqy/VlvBoNpMclNtB89T3zSr0pSbGTNl3wEtiKaNiz0MJAUSaJ4T
+    jA7sdpuXEYly7XZOqP4fWPmSfyU88HL3HjI/fHSXkbIkE+E39+2kNYAot/U/30ss
+    F4JchEplYskNeNv5dQurN7uU1X+FeTaEO4mjDwJHzf7Rs8bgiw==
+    -----END CERTIFICATE-----

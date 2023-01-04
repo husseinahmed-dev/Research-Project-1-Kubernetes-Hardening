@@ -1,0 +1,45 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: openshift-web-console
+  namespace: sn-labs-husseinashah
+  uid: 11842d22-305e-412f-b4ef-097b061f23b8
+  resourceVersion: '809977716'
+  creationTimestamp: '2023-01-04T11:20:50Z'
+  managedFields:
+    - manager: unknown
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":8000,"protocol":"TCP"}':
+              .: {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 172.21.2.70
+  ipFamilies:
+    - IPv4
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 172.21.2.70
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: openshift-web-console
+status:
+  loadBalancer: {}

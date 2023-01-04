@@ -1,0 +1,162 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tekton-triggers-admin
+  uid: 2fccda7e-253b-436f-8635-36b1eef3fb9b
+  resourceVersion: '773076105'
+  creationTimestamp: '2022-11-30T16:11:51Z'
+  labels:
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/part-of: tekton-triggers
+    operator.tekton.dev/operand-name: tektoncd-triggers
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRole","metadata":{"labels":{"app.kubernetes.io/instance":"default","app.kubernetes.io/part-of":"tekton-triggers","operator.tekton.dev/operand-name":"tektoncd-triggers"},"name":"tekton-triggers-admin","ownerReferences":[{"apiVersion":"operator.tekton.dev/v1alpha1","blockOwnerDeletion":true,"controller":true,"kind":"TektonInstallerSet","name":"trigger-258qp","uid":"260c5742-cc0b-4097-b326-e620a8f5f2d5"}]},"rules":[{"apiGroups":[""],"resources":["configmaps","services","events"],"verbs":["get","list","create","update","delete","patch","watch"]},{"apiGroups":["apps"],"resources":["deployments","deployments/finalizers"],"verbs":["get","list","create","update","delete","patch","watch"]},{"apiGroups":["admissionregistration.k8s.io"],"resources":["mutatingwebhookconfigurations","validatingwebhookconfigurations"],"verbs":["get","list","create","update","delete","patch","watch"]},{"apiGroups":["triggers.tekton.dev"],"resources":["clustertriggerbindings","clusterinterceptors","eventlisteners","triggerbindings","triggertemplates","triggers","eventlisteners/finalizers"],"verbs":["get","list","create","update","delete","patch","watch"]},{"apiGroups":["triggers.tekton.dev"],"resources":["clustertriggerbindings/status","clusterinterceptors/status","eventlisteners/status","triggerbindings/status","triggertemplates/status","triggers/status"],"verbs":["get","list","create","update","delete","patch","watch"]},{"apiGroups":["coordination.k8s.io"],"resources":["leases"],"verbs":["get","list","create","update","delete","patch","watch"]},{"apiGroups":["serving.knative.dev"],"resources":["*","*/status","*/finalizers"],"verbs":["get","list","create","update","delete","deletecollection","patch","watch"]},{"apiGroups":[""],"resourceNames":["openshift-pipelines"],"resources":["namespaces"],"verbs":["get"]},{"apiGroups":[""],"resourceNames":["openshift-pipelines"],"resources":["namespaces/finalizers"],"verbs":["update"]}]}
+    manifestival: new
+  ownerReferences:
+    - apiVersion: operator.tekton.dev/v1alpha1
+      kind: TektonInstallerSet
+      name: trigger-258qp
+      uid: 260c5742-cc0b-4097-b326-e620a8f5f2d5
+      controller: true
+      blockOwnerDeletion: true
+  managedFields:
+    - manager: manifestival
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2022-11-30T16:11:51Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:manifestival': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:operator.tekton.dev/operand-name': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"260c5742-cc0b-4097-b326-e620a8f5f2d5"}': {}
+        'f:rules': {}
+rules:
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+      - patch
+      - watch
+    apiGroups:
+      - ''
+    resources:
+      - configmaps
+      - services
+      - events
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+      - patch
+      - watch
+    apiGroups:
+      - apps
+    resources:
+      - deployments
+      - deployments/finalizers
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+      - patch
+      - watch
+    apiGroups:
+      - admissionregistration.k8s.io
+    resources:
+      - mutatingwebhookconfigurations
+      - validatingwebhookconfigurations
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+      - patch
+      - watch
+    apiGroups:
+      - triggers.tekton.dev
+    resources:
+      - clustertriggerbindings
+      - clusterinterceptors
+      - eventlisteners
+      - triggerbindings
+      - triggertemplates
+      - triggers
+      - eventlisteners/finalizers
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+      - patch
+      - watch
+    apiGroups:
+      - triggers.tekton.dev
+    resources:
+      - clustertriggerbindings/status
+      - clusterinterceptors/status
+      - eventlisteners/status
+      - triggerbindings/status
+      - triggertemplates/status
+      - triggers/status
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+      - patch
+      - watch
+    apiGroups:
+      - coordination.k8s.io
+    resources:
+      - leases
+  - verbs:
+      - get
+      - list
+      - create
+      - update
+      - delete
+      - deletecollection
+      - patch
+      - watch
+    apiGroups:
+      - serving.knative.dev
+    resources:
+      - '*'
+      - '*/status'
+      - '*/finalizers'
+  - verbs:
+      - get
+    apiGroups:
+      - ''
+    resources:
+      - namespaces
+    resourceNames:
+      - openshift-pipelines
+  - verbs:
+      - update
+    apiGroups:
+      - ''
+    resources:
+      - namespaces/finalizers
+    resourceNames:
+      - openshift-pipelines

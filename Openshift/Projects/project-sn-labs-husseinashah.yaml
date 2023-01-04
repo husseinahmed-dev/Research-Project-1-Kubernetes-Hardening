@@ -1,0 +1,64 @@
+﻿kind: Project
+apiVersion: project.openshift.io/v1
+metadata:
+  name: sn-labs-husseinashah
+  uid: f7d4bf07-8890-4be0-9fa4-b86cbfbc22bd
+  resourceVersion: '809977810'
+  creationTimestamp: '2023-01-04T11:20:50Z'
+  labels:
+    kubernetes.io/metadata.name: sn-labs-husseinashah
+    learnersandbox: 'true'
+    name: sn-labs-husseinashah
+    openshift-pipelines.tekton.dev/namespace-reconcile-version: 1.8.2
+    pod-security.kubernetes.io/audit: baseline
+    pod-security.kubernetes.io/audit-version: v1.24
+    pod-security.kubernetes.io/warn: baseline
+    pod-security.kubernetes.io/warn-version: v1.24
+  annotations:
+    openshift.io/sa.scc.mcs: 's0:c31,c10'
+    openshift.io/sa.scc.supplemental-groups: 1000950000/10000
+    openshift.io/sa.scc.uid-range: 1000950000/10000
+  managedFields:
+    - manager: cluster-policy-controller
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/sa.scc.mcs': {}
+            'f:openshift.io/sa.scc.supplemental-groups': {}
+            'f:openshift.io/sa.scc.uid-range': {}
+          'f:labels':
+            'f:pod-security.kubernetes.io/audit': {}
+            'f:pod-security.kubernetes.io/audit-version': {}
+            'f:pod-security.kubernetes.io/warn': {}
+            'f:pod-security.kubernetes.io/warn-version': {}
+    - manager: unknown
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:kubernetes.io/metadata.name': {}
+            'f:learnersandbox': {}
+            'f:name': {}
+    - manager: openshift-pipelines-operator
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T11:20:52Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            'f:openshift-pipelines.tekton.dev/namespace-reconcile-version': {}
+spec:
+  finalizers:
+    - kubernetes
+status:
+  phase: Active

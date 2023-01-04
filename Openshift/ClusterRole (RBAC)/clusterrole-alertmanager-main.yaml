@@ -1,0 +1,36 @@
+﻿kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: alertmanager-main
+  uid: 0555f420-984f-472a-8206-5c9e3b6c3156
+  resourceVersion: '476161649'
+  creationTimestamp: '2021-05-26T19:44:38Z'
+  managedFields:
+    - manager: operator
+      operation: Update
+      apiVersion: rbac.authorization.k8s.io/v1
+      time: '2021-05-26T19:44:38Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:rules': {}
+rules:
+  - verbs:
+      - create
+    apiGroups:
+      - authentication.k8s.io
+    resources:
+      - tokenreviews
+  - verbs:
+      - create
+    apiGroups:
+      - authorization.k8s.io
+    resources:
+      - subjectaccessreviews
+  - verbs:
+      - use
+    apiGroups:
+      - security.openshift.io
+    resources:
+      - securitycontextconstraints
+    resourceNames:
+      - nonroot
