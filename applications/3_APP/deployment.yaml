@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
+  name: hello-sne
 spec:
   selector:
     matchLabels:
-      run: hello-world
+      run: hello-sne
   template:
     metadata:
       labels:
-        run: hello-world
+        run: hello-sne
     spec:
       containers:
-      - name: hello-world
-        image: us.icr.io/<my_namespace>/hello-world:1
+      - name: hello-sne
+        image: us.icr.io/sn-labs-husseinashah/hello-sne:1
         ports:
         - containerPort: 8080
         resources:
