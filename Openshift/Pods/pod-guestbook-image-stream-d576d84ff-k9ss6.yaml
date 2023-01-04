@@ -1,0 +1,278 @@
+﻿kind: Pod
+apiVersion: v1
+metadata:
+  generateName: guestbook-image-stream-d576d84ff-
+  annotations:
+    openshift.io/scc: restricted-v2
+    cni.projectcalico.org/podIP: 172.17.22.158/32
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu, ephemeral-storage, memory request for
+      container guestbook-image-stream; cpu, ephemeral-storage, memory limit for
+      container guestbook-image-stream
+    openshift.io/generated-by: OpenShiftWebConsole
+    cni.projectcalico.org/podIPs: 172.17.22.158/32
+    cni.projectcalico.org/containerID: 00cb5738d1403e7afedb2b800a1487003dbf01eb20f2d5722040f2ceda25a5d9
+    seccomp.security.alpha.kubernetes.io/pod: runtime/default
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.22.158"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.22.158"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+  resourceVersion: '810364562'
+  name: guestbook-image-stream-d576d84ff-k9ss6
+  uid: 4d8d11fc-5491-4748-b021-fba530042a7f
+  creationTimestamp: '2023-01-04T19:59:00Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T19:59:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:deploymentconfig': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"a3652a76-a200-46c2-a86d-f65f7b91c520"}': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"guestbook-image-stream"}':
+              .: {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":3000,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:protocol': {}
+              'f:resources': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T19:59:01Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:cni.projectcalico.org/containerID': {}
+            'f:cni.projectcalico.org/podIP': {}
+            'f:cni.projectcalico.org/podIPs': {}
+      subresource: status
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T19:59:02Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T19:59:09Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"172.17.22.158"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: guestbook-image-stream-d576d84ff
+      uid: a3652a76-a200-46c2-a86d-f65f7b91c520
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: guestbook-image-stream
+    deploymentconfig: guestbook-image-stream
+    pod-template-hash: d576d84ff
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: icr
+    - name: dh
+    - name: default-dockercfg-g7cc8
+  priority: 1
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: 10.241.0.49
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c31,c10'
+    fsGroup: 1000950000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - resources:
+        limits:
+          cpu: 500m
+          ephemeral-storage: 5Gi
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          ephemeral-storage: 512Mi
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      name: guestbook-image-stream
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 1000950000
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+      ports:
+        - containerPort: 3000
+          protocol: TCP
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: kube-api-access-th9xm
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook@sha256:f635d1db490fa33d1d839bacde52f5e67d02bfb50e15c0b874ffc52a4ea89165
+  serviceAccount: default
+  volumes:
+    - name: kube-api-access-th9xm
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+  priorityClassName: normal
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T19:59:00Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T19:59:09Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T19:59:09Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T19:59:00Z'
+  hostIP: 10.241.0.49
+  podIP: 172.17.22.158
+  podIPs:
+    - ip: 172.17.22.158
+  startTime: '2023-01-04T19:59:00Z'
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: guestbook-image-stream
+      state:
+        running:
+          startedAt: '2023-01-04T19:59:08Z'
+      imageID: >-
+        image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook@sha256:f635d1db490fa33d1d839bacde52f5e67d02bfb50e15c0b874ffc52a4ea89165
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook@sha256:f635d1db490fa33d1d839bacde52f5e67d02bfb50e15c0b874ffc52a4ea89165
+      lastState: {}
+      containerID: 'cri-o://0e808370bd9f1339cc0a8c686587829d00abfccebb25e5b7e0b1c1ba82214f1d'
+  qosClass: Burstable

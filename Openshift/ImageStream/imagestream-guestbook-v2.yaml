@@ -1,0 +1,53 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: >-
+      https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '810398423'
+  name: guestbook-v2
+  uid: 6904649e-6118-4cd9-a020-9101e08f8f45
+  creationTimestamp: '2023-01-04T20:40:35Z'
+  generation: 1
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2023-01-04T20:40:35Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/part-of': {}
+  namespace: sn-labs-husseinashah
+  labels:
+    app: guestbook-v2
+    app.kubernetes.io/component: guestbook-v2
+    app.kubernetes.io/instance: guestbook-v2
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: >-
+    image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook-v2
+  tags:
+    - tag: latest
+      items:
+        - created: '2023-01-04T20:43:50Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook-v2@sha256:45316511821b29716bb1f2b2e9fbaacb2a4fc273380234b70428684c663b6506
+          image: >-
+            sha256:45316511821b29716bb1f2b2e9fbaacb2a4fc273380234b70428684c663b6506
+          generation: 1

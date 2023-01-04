@@ -1,0 +1,152 @@
+﻿kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: '2'
+    deployment.kubernetes.io/max-replicas: '3'
+    deployment.kubernetes.io/revision: '1'
+  resourceVersion: '810391208'
+  name: redis-slave-d474ccd84
+  uid: 0e32707c-53ba-478a-8bd8-b34f4cb32e6f
+  creationTimestamp: '2023-01-04T20:34:00Z'
+  generation: 1
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-01-04T20:34:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:deployment.kubernetes.io/desired-replicas': {}
+            'f:deployment.kubernetes.io/max-replicas': {}
+            'f:deployment.kubernetes.io/revision': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:pod-template-hash': {}
+            'f:role': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"3e48725d-bdd8-428c-91e2-0d57df992bdc"}': {}
+        'f:spec':
+          'f:replicas': {}
+          'f:selector': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:app': {}
+                'f:pod-template-hash': {}
+                'f:role': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"redis-slave"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/data"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources': {}
+                  'f:args': {}
+                  'f:command': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":6379,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:volumes':
+                .: {}
+                'k:{"name":"redis-storage"}':
+                  .: {}
+                  'f:emptyDir': {}
+                  'f:name': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-01-04T20:34:03Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:availableReplicas': {}
+          'f:fullyLabeledReplicas': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: redis-slave
+      uid: 3e48725d-bdd8-428c-91e2-0d57df992bdc
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: redis
+    pod-template-hash: d474ccd84
+    role: slave
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redis
+      pod-template-hash: d474ccd84
+      role: slave
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: redis
+        pod-template-hash: d474ccd84
+        role: slave
+    spec:
+      volumes:
+        - name: redis-storage
+          emptyDir: {}
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: redis-slave
+          command:
+            - /bin/sh
+          ports:
+            - name: redis-server
+              containerPort: 6379
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: redis-storage
+              mountPath: /data
+          terminationMessagePolicy: File
+          image: 'redis:5.0.5'
+          args:
+            - '-c'
+            - redis-server --slaveof redis-master 6379
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+status:
+  replicas: 2
+  fullyLabeledReplicas: 2
+  readyReplicas: 2
+  availableReplicas: 2
+  observedGeneration: 1

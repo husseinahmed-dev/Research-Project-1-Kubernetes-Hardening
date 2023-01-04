@@ -1,0 +1,265 @@
+﻿kind: Pod
+apiVersion: v1
+metadata:
+  generateName: guestbook-v2-74d5f8bf49-
+  annotations:
+    cni.projectcalico.org/containerID: b529ad2564f6481a276a61e4312e2d5a1866141f6a6f6d0bf20ec492586c7e8e
+    cni.projectcalico.org/podIP: 172.17.18.13/32
+    cni.projectcalico.org/podIPs: 172.17.18.13/32
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.18.13"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.18.13"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu, ephemeral-storage, memory request for
+      container guestbook-v2; cpu, ephemeral-storage, memory limit for container
+      guestbook-v2
+    openshift.io/scc: restricted-v2
+    seccomp.security.alpha.kubernetes.io/pod: runtime/default
+  resourceVersion: '810398631'
+  name: guestbook-v2-74d5f8bf49-dtwgc
+  uid: 724a801d-dc20-4593-9855-dbbe50f2e82a
+  creationTimestamp: '2023-01-04T20:43:56Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:43:56Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:deploymentconfig': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"64754854-fa3d-46af-b971-fa4e5181922d"}': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"guestbook-v2"}':
+              .: {}
+              'f:image': {}
+              'f:imagePullPolicy': {}
+              'f:name': {}
+              'f:resources': {}
+              'f:terminationMessagePath': {}
+              'f:terminationMessagePolicy': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:43:57Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:cni.projectcalico.org/containerID': {}
+            'f:cni.projectcalico.org/podIP': {}
+            'f:cni.projectcalico.org/podIPs': {}
+      subresource: status
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:43:57Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:44:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"172.17.18.13"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: guestbook-v2-74d5f8bf49
+      uid: 64754854-fa3d-46af-b971-fa4e5181922d
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: guestbook-v2
+    deploymentconfig: guestbook-v2
+    pod-template-hash: 74d5f8bf49
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: icr
+    - name: dh
+    - name: default-dockercfg-g7cc8
+  priority: 1
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: 10.241.0.47
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c31,c10'
+    fsGroup: 1000950000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: guestbook-v2
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook-v2@sha256:45316511821b29716bb1f2b2e9fbaacb2a4fc273380234b70428684c663b6506
+      resources:
+        limits:
+          cpu: 500m
+          ephemeral-storage: 5Gi
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          ephemeral-storage: 512Mi
+          memory: 128Mi
+      volumeMounts:
+        - name: kube-api-access-pqq5n
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      imagePullPolicy: Always
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 1000950000
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+  serviceAccount: default
+  volumes:
+    - name: kube-api-access-pqq5n
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+  priorityClassName: normal
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T20:43:56Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T20:44:00Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T20:44:00Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T20:43:56Z'
+  hostIP: 10.241.0.47
+  podIP: 172.17.18.13
+  podIPs:
+    - ip: 172.17.18.13
+  startTime: '2023-01-04T20:43:56Z'
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: guestbook-v2
+      state:
+        running:
+          startedAt: '2023-01-04T20:44:00Z'
+      imageID: >-
+        image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook-v2@sha256:45316511821b29716bb1f2b2e9fbaacb2a4fc273380234b70428684c663b6506
+      image: >-
+        image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook-v2@sha256:45316511821b29716bb1f2b2e9fbaacb2a4fc273380234b70428684c663b6506
+      lastState: {}
+      containerID: 'cri-o://441293bb751abe818916082ef453df73f262d9dd33e99aa4de7f3aa0514fc934'
+  qosClass: Burstable

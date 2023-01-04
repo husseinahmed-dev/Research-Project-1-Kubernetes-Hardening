@@ -1,0 +1,43 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: guestbook
+  namespace: sn-labs-husseinashah
+  uid: 3eb01a88-8901-400a-9c07-119c9cac6bd9
+  resourceVersion: '810364453'
+  generation: 3
+  creationTimestamp: '2023-01-04T19:18:38Z'
+  annotations:
+    openshift.io/image.dockerRepositoryCheck: '2023-01-04T19:59:00Z'
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - name: v1
+      annotations: null
+      from:
+        kind: DockerImage
+        name: 'us.icr.io/sn-labs-husseinashah/guestbook:v1'
+      generation: 3
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: Local
+status:
+  dockerImageRepository: >-
+    image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook
+  tags:
+    - tag: v1
+      items:
+        - created: '2023-01-04T19:59:00Z'
+          dockerImageReference: >-
+            us.icr.io/sn-labs-husseinashah/guestbook@sha256:f635d1db490fa33d1d839bacde52f5e67d02bfb50e15c0b874ffc52a4ea89165
+          image: >-
+            sha256:f635d1db490fa33d1d839bacde52f5e67d02bfb50e15c0b874ffc52a4ea89165
+          generation: 3
+        - created: '2023-01-04T19:18:39Z'
+          dockerImageReference: >-
+            us.icr.io/sn-labs-husseinashah/guestbook@sha256:46fd17e7ac1f4dd47ac59e6a5dbd38b3b5b86266447bfba83c88b25220194dd5
+          image: >-
+            sha256:46fd17e7ac1f4dd47ac59e6a5dbd38b3b5b86266447bfba83c88b25220194dd5
+          generation: 2

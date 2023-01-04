@@ -1,0 +1,70 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: guestbook-v2
+  namespace: sn-labs-husseinashah
+  uid: fd191b3d-448c-4808-aa90-a8f734c9927b
+  resourceVersion: '810396045'
+  creationTimestamp: '2023-01-04T20:40:36Z'
+  labels:
+    app: guestbook-v2
+    app.kubernetes.io/component: guestbook-v2
+    app.kubernetes.io/instance: guestbook-v2
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: >-
+      https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+    openshift.io/generated-by: OpenShiftWebConsole
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:40:36Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/part-of': {}
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":3000,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 172.21.96.236
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 3000-tcp
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 172.21.96.236
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: guestbook-v2
+    deploymentconfig: guestbook-v2
+status:
+  loadBalancer: {}

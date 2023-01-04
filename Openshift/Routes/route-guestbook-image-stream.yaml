@@ -1,0 +1,69 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: guestbook-image-stream
+  namespace: sn-labs-husseinashah
+  uid: 3c43e310-2f06-42f2-a51c-60e09ac09fb8
+  resourceVersion: '810353272'
+  creationTimestamp: '2023-01-04T19:44:03Z'
+  labels:
+    app: guestbook-image-stream
+    app.kubernetes.io/component: guestbook-image-stream
+    app.kubernetes.io/instance: guestbook-image-stream
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-01-04T19:44:03Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/part-of': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-01-04T19:44:03Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: >-
+    guestbook-image-stream-sn-labs-husseinashah.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud
+  to:
+    kind: Service
+    name: guestbook-image-stream
+    weight: 100
+  port:
+    targetPort: 3000-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: >-
+        guestbook-image-stream-sn-labs-husseinashah.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2023-01-04T19:44:03Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: >-
+        router-default.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud

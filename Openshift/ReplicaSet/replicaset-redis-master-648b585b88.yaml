@@ -1,0 +1,145 @@
+﻿kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: '1'
+    deployment.kubernetes.io/max-replicas: '2'
+    deployment.kubernetes.io/revision: '1'
+  resourceVersion: '810389814'
+  name: redis-master-648b585b88
+  uid: 76c0af6f-b92e-4483-a680-f2c609fa11f8
+  creationTimestamp: '2023-01-04T20:32:10Z'
+  generation: 1
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-01-04T20:32:10Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:deployment.kubernetes.io/desired-replicas': {}
+            'f:deployment.kubernetes.io/max-replicas': {}
+            'f:deployment.kubernetes.io/revision': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:pod-template-hash': {}
+            'f:role': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"693440a8-8d81-4cf8-8329-fdebbda5a9f0"}': {}
+        'f:spec':
+          'f:replicas': {}
+          'f:selector': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:app': {}
+                'f:pod-template-hash': {}
+                'f:role': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"redis-master"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/data"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":6379,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:volumes':
+                .: {}
+                'k:{"name":"redis-storage"}':
+                  .: {}
+                  'f:emptyDir': {}
+                  'f:name': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-01-04T20:32:13Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:availableReplicas': {}
+          'f:fullyLabeledReplicas': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: redis-master
+      uid: 693440a8-8d81-4cf8-8329-fdebbda5a9f0
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: redis
+    pod-template-hash: 648b585b88
+    role: master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+      pod-template-hash: 648b585b88
+      role: master
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: redis
+        pod-template-hash: 648b585b88
+        role: master
+    spec:
+      volumes:
+        - name: redis-storage
+          emptyDir: {}
+      containers:
+        - name: redis-master
+          image: 'redis:5.0.5'
+          ports:
+            - name: redis-server
+              containerPort: 6379
+              protocol: TCP
+          resources: {}
+          volumeMounts:
+            - name: redis-storage
+              mountPath: /data
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+status:
+  replicas: 1
+  fullyLabeledReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  observedGeneration: 1

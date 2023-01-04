@@ -1,0 +1,192 @@
+﻿kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/build-config.name: guestbook-v2
+    openshift.io/build.number: '1'
+    openshift.io/build.pod-name: guestbook-v2-1-build
+  resourceVersion: '810398527'
+  name: guestbook-v2-1
+  uid: 34eacda5-02f7-4210-a284-007fe8ffc748
+  creationTimestamp: '2023-01-04T20:40:35Z'
+  generation: 2
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-01-04T20:40:35Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/build-config.name': {}
+            'f:openshift.io/build.number': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:buildconfig': {}
+            'f:openshift.io/build-config.name': {}
+            'f:openshift.io/build.start-policy': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"b89c7487-de84-415e-b195-8779aa693b78"}': {}
+        'f:spec':
+          'f:output':
+            'f:to': {}
+          'f:serviceAccount': {}
+          'f:source':
+            'f:contextDir': {}
+            'f:git':
+              .: {}
+              'f:uri': {}
+            'f:type': {}
+          'f:strategy':
+            'f:dockerStrategy':
+              .: {}
+              'f:dockerfilePath': {}
+            'f:type': {}
+          'f:triggeredBy': {}
+        'f:status':
+          'f:conditions':
+            .: {}
+            'k:{"type":"New"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:config': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-01-04T20:43:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:openshift.io/build.pod-name': {}
+        'f:spec':
+          'f:output':
+            'f:pushSecret': {}
+        'f:status':
+          'f:completionTimestamp': {}
+          'f:duration': {}
+          'f:outputDockerImageReference': {}
+          'f:phase': {}
+          'f:startTimestamp': {}
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: BuildConfig
+      name: guestbook-v2
+      uid: b89c7487-de84-415e-b195-8779aa693b78
+      controller: true
+  labels:
+    app: guestbook-v2
+    app.kubernetes.io/component: guestbook-v2
+    app.kubernetes.io/instance: guestbook-v2
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+    buildconfig: guestbook-v2
+    openshift.io/build-config.name: guestbook-v2
+    openshift.io/build.start-policy: Serial
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'guestbook-v2:latest'
+    pushSecret:
+      name: builder-dockercfg-j6znr
+  resources: {}
+  triggeredBy:
+    - message: Build configuration change
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+  postCommit: {}
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: >-
+        https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+    contextDir: /applications/4_APP (Guestbook)/v2/guestbook
+  revision:
+    type: Git
+    git:
+      commit: 8a737b0b69d046a7e91d5dc2df016dffc46efdfa
+      author:
+        name: Hussein Ahmed Shahab
+        email: hussein.a.shahab@gmail.com
+      committer:
+        name: Hussein Ahmed Shahab
+        email: hussein.a.shahab@gmail.com
+      message: Updated Guestbook Dockerfile
+status:
+  output:
+    to:
+      imageDigest: 'sha256:45316511821b29716bb1f2b2e9fbaacb2a4fc273380234b70428684c663b6506'
+  config:
+    kind: BuildConfig
+    namespace: sn-labs-husseinashah
+    name: guestbook-v2
+  outputDockerImageReference: >-
+    image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook-v2:latest
+  duration: 199000000000
+  startTimestamp: '2023-01-04T20:40:35Z'
+  stages:
+    - name: FetchInputs
+      startTime: '2023-01-04T20:40:37Z'
+      durationMilliseconds: 719
+      steps:
+        - name: FetchGitSource
+          startTime: '2023-01-04T20:40:37Z'
+          durationMilliseconds: 719
+    - name: PullImages
+      startTime: '2023-01-04T20:40:40Z'
+      durationMilliseconds: 122181
+      steps:
+        - name: PullBaseImage
+          startTime: '2023-01-04T20:40:40Z'
+          durationMilliseconds: 102802
+        - name: PullBaseImage
+          startTime: '2023-01-04T20:42:23Z'
+          durationMilliseconds: 19379
+    - name: Build
+      startTime: '2023-01-04T20:42:42Z'
+      durationMilliseconds: 55037
+      steps:
+        - name: DockerBuild
+          startTime: '2023-01-04T20:42:42Z'
+          durationMilliseconds: 55037
+    - name: PushImage
+      startTime: '2023-01-04T20:43:38Z'
+      durationMilliseconds: 12859
+      steps:
+        - name: PushDockerImage
+          startTime: '2023-01-04T20:43:38Z'
+          durationMilliseconds: 12859
+  conditions:
+    - type: New
+      status: 'False'
+      lastUpdateTime: '2023-01-04T20:40:36Z'
+      lastTransitionTime: '2023-01-04T20:40:36Z'
+    - type: Pending
+      status: 'False'
+      lastUpdateTime: '2023-01-04T20:40:38Z'
+      lastTransitionTime: '2023-01-04T20:40:38Z'
+    - type: Running
+      status: 'False'
+      lastUpdateTime: '2023-01-04T20:43:54Z'
+      lastTransitionTime: '2023-01-04T20:43:54Z'
+    - type: Complete
+      status: 'True'
+      lastUpdateTime: '2023-01-04T20:43:54Z'
+      lastTransitionTime: '2023-01-04T20:43:54Z'
+  completionTimestamp: '2023-01-04T20:43:54Z'
+  phase: Complete

@@ -1,0 +1,65 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: guestbook-image-stream
+  namespace: sn-labs-husseinashah
+  uid: f3aeb42d-f85c-471d-a360-03c5199230ea
+  resourceVersion: '810353271'
+  creationTimestamp: '2023-01-04T19:44:03Z'
+  labels:
+    app: guestbook-image-stream
+    app.kubernetes.io/component: guestbook-image-stream
+    app.kubernetes.io/instance: guestbook-image-stream
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T19:44:03Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/part-of': {}
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":3000,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 172.21.226.23
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 3000-tcp
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 172.21.226.23
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: guestbook-image-stream
+    deploymentconfig: guestbook-image-stream
+status:
+  loadBalancer: {}

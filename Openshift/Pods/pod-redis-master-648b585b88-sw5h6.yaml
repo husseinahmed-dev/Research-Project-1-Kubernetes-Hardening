@@ -1,0 +1,290 @@
+﻿kind: Pod
+apiVersion: v1
+metadata:
+  generateName: redis-master-648b585b88-
+  annotations:
+    cni.projectcalico.org/containerID: df341f55854252182e6a1abfdd5b10e1631e62740e816986192e1a7d228d875e
+    cni.projectcalico.org/podIP: 172.17.18.31/32
+    cni.projectcalico.org/podIPs: 172.17.18.31/32
+    k8s.v1.cni.cncf.io/network-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.18.31"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    k8s.v1.cni.cncf.io/networks-status: |-
+      [{
+          "name": "k8s-pod-network",
+          "ips": [
+              "172.17.18.31"
+          ],
+          "default": true,
+          "dns": {}
+      }]
+    kubernetes.io/limit-ranger: >-
+      LimitRanger plugin set: cpu, ephemeral-storage, memory request for
+      container redis-master; cpu, ephemeral-storage, memory limit for container
+      redis-master
+    openshift.io/scc: restricted-v2
+    seccomp.security.alpha.kubernetes.io/pod: runtime/default
+  resourceVersion: '810389813'
+  name: redis-master-648b585b88-sw5h6
+  uid: 60bc9738-1029-4799-a915-01a7c0c4c879
+  creationTimestamp: '2023-01-04T20:32:10Z'
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:32:10Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:generateName': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:pod-template-hash': {}
+            'f:role': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"76c0af6f-b92e-4483-a680-f2c609fa11f8"}': {}
+        'f:spec':
+          'f:containers':
+            'k:{"name":"redis-master"}':
+              'f:image': {}
+              'f:volumeMounts':
+                .: {}
+                'k:{"mountPath":"/data"}':
+                  .: {}
+                  'f:mountPath': {}
+                  'f:name': {}
+              'f:terminationMessagePolicy': {}
+              .: {}
+              'f:resources': {}
+              'f:terminationMessagePath': {}
+              'f:imagePullPolicy': {}
+              'f:ports':
+                .: {}
+                'k:{"containerPort":6379,"protocol":"TCP"}':
+                  .: {}
+                  'f:containerPort': {}
+                  'f:name': {}
+                  'f:protocol': {}
+              'f:name': {}
+          'f:dnsPolicy': {}
+          'f:enableServiceLinks': {}
+          'f:restartPolicy': {}
+          'f:schedulerName': {}
+          'f:securityContext': {}
+          'f:terminationGracePeriodSeconds': {}
+          'f:volumes':
+            .: {}
+            'k:{"name":"redis-storage"}':
+              .: {}
+              'f:emptyDir': {}
+              'f:name': {}
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:32:12Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:cni.projectcalico.org/containerID': {}
+            'f:cni.projectcalico.org/podIP': {}
+            'f:cni.projectcalico.org/podIPs': {}
+      subresource: status
+    - manager: multus
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:32:12Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:k8s.v1.cni.cncf.io/network-status': {}
+            'f:k8s.v1.cni.cncf.io/networks-status': {}
+      subresource: status
+    - manager: kubelet
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:32:13Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:conditions':
+            'k:{"type":"ContainersReady"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Initialized"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Ready"}':
+              .: {}
+              'f:lastProbeTime': {}
+              'f:lastTransitionTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:containerStatuses': {}
+          'f:hostIP': {}
+          'f:phase': {}
+          'f:podIP': {}
+          'f:podIPs':
+            .: {}
+            'k:{"ip":"172.17.18.31"}':
+              .: {}
+              'f:ip': {}
+          'f:startTime': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: ReplicaSet
+      name: redis-master-648b585b88
+      uid: 76c0af6f-b92e-4483-a680-f2c609fa11f8
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: redis
+    pod-template-hash: 648b585b88
+    role: master
+spec:
+  restartPolicy: Always
+  serviceAccountName: default
+  imagePullSecrets:
+    - name: icr
+    - name: dh
+    - name: default-dockercfg-g7cc8
+  priority: 1
+  schedulerName: default-scheduler
+  enableServiceLinks: true
+  terminationGracePeriodSeconds: 30
+  preemptionPolicy: PreemptLowerPriority
+  nodeName: 10.241.0.47
+  securityContext:
+    seLinuxOptions:
+      level: 's0:c31,c10'
+    fsGroup: 1000950000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - resources:
+        limits:
+          cpu: 500m
+          ephemeral-storage: 5Gi
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          ephemeral-storage: 512Mi
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      name: redis-master
+      securityContext:
+        capabilities:
+          drop:
+            - ALL
+        runAsUser: 1000950000
+        runAsNonRoot: true
+        allowPrivilegeEscalation: false
+      ports:
+        - name: redis-server
+          containerPort: 6379
+          protocol: TCP
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: redis-storage
+          mountPath: /data
+        - name: kube-api-access-q8bxn
+          readOnly: true
+          mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      terminationMessagePolicy: File
+      image: 'redis:5.0.5'
+  serviceAccount: default
+  volumes:
+    - name: redis-storage
+      emptyDir: {}
+    - name: kube-api-access-q8bxn
+      projected:
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              name: kube-root-ca.crt
+              items:
+                - key: ca.crt
+                  path: ca.crt
+          - downwardAPI:
+              items:
+                - path: namespace
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+          - configMap:
+              name: openshift-service-ca.crt
+              items:
+                - key: service-ca.crt
+                  path: service-ca.crt
+        defaultMode: 420
+  dnsPolicy: ClusterFirst
+  tolerations:
+    - key: node.kubernetes.io/not-ready
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/unreachable
+      operator: Exists
+      effect: NoExecute
+      tolerationSeconds: 300
+    - key: node.kubernetes.io/memory-pressure
+      operator: Exists
+      effect: NoSchedule
+  priorityClassName: normal
+status:
+  phase: Running
+  conditions:
+    - type: Initialized
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T20:32:11Z'
+    - type: Ready
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T20:32:12Z'
+    - type: ContainersReady
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T20:32:12Z'
+    - type: PodScheduled
+      status: 'True'
+      lastProbeTime: null
+      lastTransitionTime: '2023-01-04T20:32:11Z'
+  hostIP: 10.241.0.47
+  podIP: 172.17.18.31
+  podIPs:
+    - ip: 172.17.18.31
+  startTime: '2023-01-04T20:32:11Z'
+  containerStatuses:
+    - restartCount: 0
+      started: true
+      ready: true
+      name: redis-master
+      state:
+        running:
+          startedAt: '2023-01-04T20:32:12Z'
+      imageID: >-
+        docker.io/library/redis@sha256:5dcccb533dc0deacce4a02fe9035134576368452db0b4323b98a4b2ba2d3b302
+      image: 'docker.io/library/redis:5.0.5'
+      lastState: {}
+      containerID: 'cri-o://f29d3bde7506e5b45e163a743582f6467d060524485e492fcc07279a59342a90'
+  qosClass: Burstable

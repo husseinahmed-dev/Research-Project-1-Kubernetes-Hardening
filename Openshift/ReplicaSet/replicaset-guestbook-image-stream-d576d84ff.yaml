@@ -1,0 +1,137 @@
+﻿kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    deployment.kubernetes.io/desired-replicas: '1'
+    deployment.kubernetes.io/max-replicas: '2'
+    deployment.kubernetes.io/revision: '2'
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"guestbook:v1","namespace":"sn-labs-husseinashah"},"fieldPath":"spec.template.spec.containers[?(@.name==\"guestbook-image-stream\")].image","pause":"false"}]
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '810364566'
+  name: guestbook-image-stream-d576d84ff
+  uid: a3652a76-a200-46c2-a86d-f65f7b91c520
+  creationTimestamp: '2023-01-04T19:59:00Z'
+  generation: 1
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-01-04T19:59:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:alpha.image.policy.openshift.io/resolve-names': {}
+            'f:deployment.kubernetes.io/desired-replicas': {}
+            'f:deployment.kubernetes.io/max-replicas': {}
+            'f:deployment.kubernetes.io/revision': {}
+            'f:image.openshift.io/triggers': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:deploymentconfig': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"3d3a0b56-5fa7-4dd5-a211-6f9622078068"}': {}
+        'f:spec':
+          'f:replicas': {}
+          'f:selector': {}
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                .: {}
+                'f:openshift.io/generated-by': {}
+              'f:labels':
+                .: {}
+                'f:app': {}
+                'f:deploymentconfig': {}
+                'f:pod-template-hash': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"guestbook-image-stream"}':
+                  .: {}
+                  'f:image': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":3000,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:resources': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-01-04T19:59:09Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:availableReplicas': {}
+          'f:fullyLabeledReplicas': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: guestbook-image-stream
+      uid: 3d3a0b56-5fa7-4dd5-a211-6f9622078068
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: guestbook-image-stream
+    deploymentconfig: guestbook-image-stream
+    pod-template-hash: d576d84ff
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guestbook-image-stream
+      pod-template-hash: d576d84ff
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: guestbook-image-stream
+        deploymentconfig: guestbook-image-stream
+        pod-template-hash: d576d84ff
+      annotations:
+        openshift.io/generated-by: OpenShiftWebConsole
+    spec:
+      containers:
+        - name: guestbook-image-stream
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook@sha256:f635d1db490fa33d1d839bacde52f5e67d02bfb50e15c0b874ffc52a4ea89165
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+status:
+  replicas: 1
+  fullyLabeledReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  observedGeneration: 1

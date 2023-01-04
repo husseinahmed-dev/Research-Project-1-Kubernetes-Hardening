@@ -1,0 +1,69 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: guestbook-v2
+  namespace: sn-labs-husseinashah
+  uid: 2419bce1-4820-42ee-8c82-8397839dc3ed
+  resourceVersion: '810396049'
+  creationTimestamp: '2023-01-04T20:40:36Z'
+  labels:
+    app: guestbook-v2
+    app.kubernetes.io/component: guestbook-v2
+    app.kubernetes.io/instance: guestbook-v2
+    app.kubernetes.io/part-of: research-project-1-kubernetes-hardening-git-app
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-01-04T20:40:36Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/part-of': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2023-01-04T20:40:36Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+      subresource: status
+spec:
+  host: >-
+    guestbook-v2-sn-labs-husseinashah.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud
+  to:
+    kind: Service
+    name: guestbook-v2
+    weight: 100
+  port:
+    targetPort: 3000-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: >-
+        guestbook-v2-sn-labs-husseinashah.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2023-01-04T20:40:36Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: >-
+        router-default.labs-prod-openshift-san-a45631dc5778dc6371c67d206ba9ae5c-0000.us-east.containers.appdomain.cloud

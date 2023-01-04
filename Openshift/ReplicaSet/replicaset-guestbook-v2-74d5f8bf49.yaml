@@ -1,0 +1,128 @@
+﻿kind: ReplicaSet
+apiVersion: apps/v1
+metadata:
+  annotations:
+    alpha.image.policy.openshift.io/resolve-names: '*'
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: >-
+      https://github.com/husseinahmed-dev/Research-Project-1-Kubernetes-Hardening.git
+    deployment.kubernetes.io/desired-replicas: '1'
+    deployment.kubernetes.io/max-replicas: '2'
+    deployment.kubernetes.io/revision: '2'
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"guestbook-v2:latest","namespace":"sn-labs-husseinashah"},"fieldPath":"spec.template.spec.containers[?(@.name==\"guestbook-v2\")].image","pause":"false"}]
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '810398635'
+  name: guestbook-v2-74d5f8bf49
+  uid: 64754854-fa3d-46af-b971-fa4e5181922d
+  creationTimestamp: '2023-01-04T20:43:50Z'
+  generation: 1
+  managedFields:
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-01-04T20:43:50Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/desired-replicas': {}
+            'f:image.openshift.io/triggers': {}
+            .: {}
+            'f:deployment.kubernetes.io/revision': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+            'f:alpha.image.policy.openshift.io/resolve-names': {}
+            'f:deployment.kubernetes.io/max-replicas': {}
+            'f:app.openshift.io/vcs-ref': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:deploymentconfig': {}
+            'f:pod-template-hash': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"c62c30d1-c79c-4a7a-81a5-47699ae34157"}': {}
+        'f:spec':
+          'f:replicas': {}
+          'f:selector': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:app': {}
+                'f:deploymentconfig': {}
+                'f:pod-template-hash': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"guestbook-v2"}':
+                  .: {}
+                  'f:image': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:resources': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-01-04T20:44:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:availableReplicas': {}
+          'f:fullyLabeledReplicas': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+      subresource: status
+  namespace: sn-labs-husseinashah
+  ownerReferences:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: guestbook-v2
+      uid: c62c30d1-c79c-4a7a-81a5-47699ae34157
+      controller: true
+      blockOwnerDeletion: true
+  labels:
+    app: guestbook-v2
+    deploymentconfig: guestbook-v2
+    pod-template-hash: 74d5f8bf49
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: guestbook-v2
+      pod-template-hash: 74d5f8bf49
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: guestbook-v2
+        deploymentconfig: guestbook-v2
+        pod-template-hash: 74d5f8bf49
+    spec:
+      containers:
+        - name: guestbook-v2
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/sn-labs-husseinashah/guestbook-v2@sha256:45316511821b29716bb1f2b2e9fbaacb2a4fc273380234b70428684c663b6506
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+status:
+  replicas: 1
+  fullyLabeledReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  observedGeneration: 1

@@ -1,0 +1,60 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: redis-master
+  namespace: sn-labs-husseinashah
+  uid: cc3701d1-e690-4681-a77a-63d123411dd4
+  resourceVersion: '810390610'
+  creationTimestamp: '2023-01-04T20:33:22Z'
+  labels:
+    app: redis
+    role: master
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"redis","role":"master"},"name":"redis-master","namespace":"sn-labs-husseinashah"},"spec":{"ports":[{"port":6379,"targetPort":"redis-server"}],"selector":{"app":"redis","role":"master"}}}
+  managedFields:
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:33:22Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:role': {}
+        'f:spec':
+          'f:internalTrafficPolicy': {}
+          'f:ports':
+            .: {}
+            'k:{"port":6379,"protocol":"TCP"}':
+              .: {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  clusterIP: 172.21.180.192
+  ipFamilies:
+    - IPv4
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: redis-server
+  internalTrafficPolicy: Cluster
+  clusterIPs:
+    - 172.21.180.192
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: redis
+    role: master
+status:
+  loadBalancer: {}

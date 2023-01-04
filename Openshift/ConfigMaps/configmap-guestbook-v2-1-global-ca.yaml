@@ -1,0 +1,29 @@
+﻿kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: guestbook-v2-1-global-ca
+  namespace: sn-labs-husseinashah
+  uid: a36f37c4-ec63-40ef-b7b7-c2ba7c0be4a0
+  resourceVersion: '810396025'
+  creationTimestamp: '2023-01-04T20:40:35Z'
+  ownerReferences:
+    - apiVersion: v1
+      kind: Pod
+      name: guestbook-v2-1-build
+      uid: 6451f4b4-e74e-4743-9d2f-5c90cf2c49db
+  managedFields:
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: v1
+      time: '2023-01-04T20:40:35Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:data':
+          .: {}
+          'f:ca-bundle.crt': {}
+        'f:metadata':
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"6451f4b4-e74e-4743-9d2f-5c90cf2c49db"}': {}
+data:
+  ca-bundle.crt: ''
