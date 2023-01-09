@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: securitycontext-demo
+  namespace: protected
+spec:
+  containers:
+  - image: alpine
+    name: securitycontext-demo
+    securityContext:
+      capabilities:
+        add: ["SYS_TIME"]
+  restartPolicy: Never
